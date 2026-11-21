@@ -1,0 +1,2883 @@
+<!DOCTYPE html>
+<html lang="lo" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Creator Bio – Alex | Web & Game Creator. Explore websites, interactive games, and digital creations." />
+  <meta name="theme-color" content="#090C14" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F3F6FC" media="(prefers-color-scheme: light)" />
+  <title>Creator Bio – Alex | Web &amp; Game Creator</title>
+
+  <!-- Google Fonts: Inter, Plus Jakarta Sans, Noto Sans Lao & Noto Sans Thai -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Lao:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans Lao', 'Noto Sans Thai', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'Inter', 'Noto Sans Lao', 'Noto Sans Thai', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Instant Theme, Language & Adaptive SoC Performance Initialization -->
+  <script>
+    (function () {
+      const root = document.documentElement;
+      try {
+        const savedTheme = localStorage.getItem('creator_bio_theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+
+        const savedLang = localStorage.getItem('creator_bio_lang');
+        if (savedLang === 'lo' || savedLang === 'th' || savedLang === 'en') {
+          root.lang = savedLang;
+        } else {
+          root.lang = 'lo';
+        }
+      } catch (e) {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          root.classList.add('dark');
+        }
+        root.lang = 'lo';
+      }
+
+      // Adaptive GPU Profile for Mid-Range Mobile SoCs (Snapdragon, Exynos, MediaTek, Tensor)
+      try {
+        const cores = navigator.hardwareConcurrency || 4;
+        const memory = navigator.deviceMemory || 4;
+        if ((cores <= 4 || memory <= 3) && window.innerWidth < 768) {
+          root.classList.add('perf-balanced');
+        }
+      } catch (e) {
+        // Keep standard profile
+      }
+    })();
+  </script>
+
+  <!-- ==========================================================================
+       CSS ARCHITECTURE: APPLE LIQUID GLASS + GOOGLE PIXEL + MATERIAL YOU
+       Scroll-Linked Reversible Side-to-Center Assembly | 60Hz / 90Hz / 120Hz GPU
+       ========================================================================== -->
+  <style>
+    :root {
+      /* Light Mode Liquid Glass Tokens */
+      --bg-base: #f2f5fb;
+      --bg-secondary: #e7edf8;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+
+      --glass-surface: rgba(255, 255, 255, 0.68);
+      --glass-surface-strong: rgba(255, 255, 255, 0.86);
+      --glass-surface-hover: rgba(255, 255, 255, 0.9);
+      --glass-border: rgba(255, 255, 255, 0.88);
+      --glass-border-subtle: rgba(15, 23, 42, 0.08);
+      --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.95), inset 0 -1px 0 0 rgba(15, 23, 42, 0.04);
+      --glass-shadow: 0 12px 36px -8px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+      --glass-shadow-hover: 0 22px 48px -10px rgba(124, 58, 237, 0.16), 0 8px 20px -4px rgba(15, 23, 42, 0.06);
+      --glass-blur: 18px;
+      --glass-nav-blur: 22px;
+
+      --accent-primary: #7c3aed;
+      --accent-secondary: #2563eb;
+      --accent-glow: rgba(124, 58, 237, 0.28);
+
+      --orb-1: rgba(56, 189, 248, 0.32);
+      --orb-2: rgba(139, 92, 246, 0.26);
+      --orb-3: rgba(59, 130, 246, 0.22);
+
+      /* Ultra-Silky Spring & Tactile Curves */
+      --spring-easing: cubic-bezier(0.16, 1, 0.3, 1);
+      --bounce-easing: cubic-bezier(0.22, 1.36, 0.36, 1);
+      --capsule-spring: cubic-bezier(0.2, 1.18, 0.32, 1);
+      --modal-spring: cubic-bezier(0.18, 1.24, 0.32, 1);
+    }
+
+    html.dark {
+      /* Dark Mode Liquid Glass Tokens */
+      --bg-base: #070a11;
+      --bg-secondary: #0d121f;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+
+      --glass-surface: rgba(17, 24, 39, 0.62);
+      --glass-surface-strong: rgba(15, 22, 36, 0.84);
+      --glass-surface-hover: rgba(26, 36, 58, 0.76);
+      --glass-border: rgba(255, 255, 255, 0.14);
+      --glass-border-subtle: rgba(255, 255, 255, 0.07);
+      --glass-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.18), inset 0 -1px 0 0 rgba(0, 0, 0, 0.35);
+      --glass-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.55), 0 4px 14px -2px rgba(0, 0, 0, 0.35);
+      --glass-shadow-hover: 0 24px 52px -12px rgba(139, 92, 246, 0.22), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+
+      --accent-primary: #a78bfa;
+      --accent-secondary: #38bdf8;
+      --accent-glow: rgba(139, 92, 246, 0.3);
+
+      --orb-1: rgba(14, 165, 233, 0.2);
+      --orb-2: rgba(124, 58, 237, 0.22);
+      --orb-3: rgba(37, 99, 235, 0.16);
+    }
+
+    /* Balanced GPU Blur for Mid-Range Mobile Devices */
+    html.perf-balanced {
+      --glass-blur: 10px;
+      --glass-nav-blur: 12px;
+      --glass-surface: rgba(255, 255, 255, 0.85);
+      --glass-surface-strong: rgba(255, 255, 255, 0.92);
+    }
+
+    html.dark.perf-balanced {
+      --glass-surface: rgba(17, 24, 39, 0.84);
+      --glass-surface-strong: rgba(15, 22, 36, 0.91);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-x: clip;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', 'Noto Sans Lao', 'Noto Sans Thai', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background-color 0.28s var(--spring-easing), color 0.28s var(--spring-easing);
+    }
+
+    /* Ambient Floating Background Lights (Isolated GPU Composite Layer) */
+    .ambient-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      contain: strict;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 9999px;
+      backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
+      opacity: 0.9;
+      transition: background 0.35s ease;
+    }
+
+    /* Pause background animations automatically when tab/app is hidden */
+    html.page-hidden .ambient-orb,
+    html.page-hidden .floating-3d-dock,
+    html.page-hidden .status-live-dot {
+      animation-play-state: paused !important;
+    }
+
+    .orb-primary {
+      width: min(72vw, 560px);
+      height: min(72vw, 560px);
+      top: -12%;
+      left: -10%;
+      background: radial-gradient(circle, var(--orb-1) 0%, transparent 70%);
+      animation: floatOrbOne 14s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+    }
+
+    .orb-secondary {
+      width: min(68vw, 520px);
+      height: min(68vw, 520px);
+      top: 28%;
+      right: -14%;
+      background: radial-gradient(circle, var(--orb-2) 0%, transparent 70%);
+      animation: floatOrbTwo 17s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+    }
+
+    .orb-tertiary {
+      width: min(64vw, 480px);
+      height: min(64vw, 480px);
+      bottom: -14%;
+      left: 18%;
+      background: radial-gradient(circle, var(--orb-3) 0%, transparent 70%);
+      animation: floatOrbThree 15.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+    }
+
+    @keyframes floatOrbOne {
+      0% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+      100% { transform: translate3d(5vw, 4vh, 0) scale3d(1.07, 1.07, 1); }
+    }
+
+    @keyframes floatOrbTwo {
+      0% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+      100% { transform: translate3d(-5vw, -3.5vh, 0) scale3d(1.05, 1.05, 1); }
+    }
+
+    @keyframes floatOrbThree {
+      0% { transform: translate3d(0, 0, 0) scale3d(1, 1, 1); }
+      100% { transform: translate3d(3.5vw, -5vh, 0) scale3d(1.04, 1.04, 1); }
+    }
+
+    /* Subtle Geometric Pixel Grid Texture */
+    .subtle-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      contain: strict;
+      transform: translateZ(0);
+      background-image: radial-gradient(var(--glass-border-subtle) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 75%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 75%, transparent 100%);
+    }
+
+    /* Core Liquid Glass Surface */
+    .liquid-glass {
+      position: relative;
+      background: var(--glass-surface);
+      backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(170%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight), var(--glass-shadow);
+      contain: layout style;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      transition:
+        background-color 0.25s var(--spring-easing),
+        border-color 0.25s var(--spring-easing),
+        box-shadow 0.25s var(--spring-easing);
+    }
+
+    .liquid-glass-nav {
+      background: var(--glass-surface-strong);
+      backdrop-filter: blur(var(--glass-nav-blur)) saturate(180%);
+      -webkit-backdrop-filter: blur(var(--glass-nav-blur)) saturate(180%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight), var(--glass-shadow);
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    /* ========================================================================
+       SCROLL-DRIVEN MODULAR NAVIGATION SHELL & ISLANDS
+       Separates cleanly into Left / Center / Right Islands at Top,
+       and Assembles into Unified Liquid Glass Bar when Scrolling!
+       ======================================================================== */
+    .top-nav-shell {
+      position: relative;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    /* Unified outer glass backdrop that fades/scales smoothly as modules join */
+    .top-nav-unified-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background: var(--glass-surface-strong);
+      backdrop-filter: blur(var(--glass-nav-blur)) saturate(185%);
+      -webkit-backdrop-filter: blur(var(--glass-nav-blur)) saturate(185%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight), var(--glass-shadow);
+      opacity: var(--nav-unified-opacity, 0.12);
+      transform: scale3d(var(--nav-unified-scale-x, 1.02), var(--nav-unified-scale-y, 0.96), 1);
+      pointer-events: none;
+      z-index: 0;
+      backface-visibility: hidden;
+    }
+
+    /* Individual Glass Islands (Left Brand, Center Links, Right Controls) */
+    .nav-island {
+      position: relative;
+      z-index: 1;
+      border-radius: 9999px;
+      background: var(--glass-surface-strong);
+      backdrop-filter: blur(var(--glass-nav-blur)) saturate(185%);
+      -webkit-backdrop-filter: blur(var(--glass-nav-blur)) saturate(185%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-highlight), 0 8px 24px -6px rgba(15, 23, 42, 0.1);
+      backface-visibility: hidden;
+      will-change: transform;
+    }
+
+    html.dark .nav-island {
+      box-shadow: var(--glass-highlight), 0 10px 28px -6px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Scroll-Driven Reversible Assembly Elements */
+    .scroll-assemble {
+      backface-visibility: hidden;
+      will-change: transform, opacity;
+    }
+
+    /* ========================================================================
+       3D FLOATING WHITE CAPSULE DOCK & SLIDING PILL ARCHITECTURE
+       ======================================================================== */
+    .floating-3d-dock {
+      position: relative;
+      background: linear-gradient(
+        180deg,
+        rgba(236, 241, 249, 0.88) 0%,
+        rgba(222, 229, 242, 0.82) 100%
+      );
+      backdrop-filter: blur(var(--glass-nav-blur)) saturate(190%);
+      -webkit-backdrop-filter: blur(var(--glass-nav-blur)) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.94);
+      box-shadow:
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -3px 6px 0 rgba(100, 116, 139, 0.16),
+        0 18px 38px -8px rgba(15, 23, 42, 0.18),
+        0 8px 18px -4px rgba(15, 23, 42, 0.1);
+      backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
+      animation: dockFloat3D 3.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+      transition: transform 0.2s var(--bounce-easing), box-shadow 0.22s ease, background 0.24s ease;
+    }
+
+    html.dark .floating-3d-dock {
+      background: linear-gradient(
+        180deg,
+        rgba(26, 33, 52, 0.88) 0%,
+        rgba(14, 19, 32, 0.92) 100%
+      );
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow:
+        inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -3px 7px 0 rgba(0, 0, 0, 0.65),
+        0 20px 42px -8px rgba(0, 0, 0, 0.72),
+        0 10px 26px -4px rgba(255, 255, 255, 0.08);
+    }
+
+    @keyframes dockFloat3D {
+      0% { transform: translate3d(0, 0px, 0); }
+      100% { transform: translate3d(0, -3.5px, 0); }
+    }
+
+    /* Physical Sliding 3D Glossy White Capsule Pill */
+    .sliding-purple-capsule {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 0;
+      backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 60%, #e2e8f0 100%);
+      border: 1px solid rgba(255, 255, 255, 0.98);
+      box-shadow:
+        inset 0 2px 1.5px 0 rgba(255, 255, 255, 1),
+        inset 0 -3px 5px 0 rgba(148, 163, 184, 0.34),
+        0 8px 18px -3px rgba(15, 23, 42, 0.18),
+        0 3px 8px -1px rgba(15, 23, 42, 0.1);
+      transition:
+        transform 0.34s var(--capsule-spring),
+        width 0.3s var(--spring-easing),
+        opacity 0.18s ease;
+    }
+
+    html.dark .sliding-purple-capsule {
+      background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 64%, #cbd5e1 100%);
+      border: 1px solid rgba(255, 255, 255, 0.96);
+      box-shadow:
+        inset 0 2px 1.5px 0 rgba(255, 255, 255, 1),
+        inset 0 -3px 5px 0 rgba(100, 116, 139, 0.42),
+        0 8px 22px -2px rgba(255, 255, 255, 0.22),
+        0 4px 12px -2px rgba(0, 0, 0, 0.55);
+    }
+
+    .sliding-purple-capsule::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 12%;
+      right: 12%;
+      height: 44%;
+      border-radius: 9999px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
+
+    /* Navigation Links */
+    .nav-link {
+      position: relative;
+      z-index: 1;
+      color: var(--text-secondary);
+      backface-visibility: hidden;
+      transition:
+        color 0.2s ease,
+        transform 0.22s var(--bounce-easing);
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link.active,
+    html.dark .nav-link.active {
+      color: #0f172a !important;
+      font-weight: 700;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+    }
+
+    .nav-link.active svg,
+    html.dark .nav-link.active svg {
+      stroke: #0f172a !important;
+      stroke-width: 2.35;
+    }
+
+    .mobile-dock-link {
+      will-change: transform;
+    }
+
+    .mobile-dock-link:active {
+      transform: scale3d(0.93, 0.93, 1) !important;
+    }
+
+    /* Language Switcher Pill Buttons */
+    .lang-btn {
+      touch-action: manipulation;
+      backface-visibility: hidden;
+      transition:
+        background-color 0.2s var(--spring-easing),
+        color 0.18s ease,
+        transform 0.18s var(--bounce-easing),
+        box-shadow 0.2s ease;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 12px -2px rgba(124, 58, 237, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    .lang-btn:active {
+      transform: scale3d(0.92, 0.92, 1);
+    }
+
+    /* Interactive Glass Card Hover & Tap Spring */
+    .glass-interactive {
+      cursor: pointer;
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+
+    .glass-interactive::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 48%, rgba(168, 85, 247, 0.28) 100%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.65;
+      transition: opacity 0.22s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .glass-interactive::after {
+        content: '';
+        position: absolute;
+        width: 240px;
+        height: 240px;
+        top: 0;
+        left: 0;
+        transform: translate3d(calc(var(--mouse-x, -240px) - 120px), calc(var(--mouse-y, -240px) - 120px), 0);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.22) 0%, transparent 70%);
+        pointer-events: none;
+        opacity: 0;
+        backface-visibility: hidden;
+        transition: opacity 0.22s ease;
+      }
+
+      html.dark .glass-interactive::after {
+        background: radial-gradient(circle, rgba(167, 139, 250, 0.16) 0%, transparent 70%);
+      }
+
+      .glass-interactive:hover {
+        background: var(--glass-surface-hover);
+        box-shadow: var(--glass-highlight), var(--glass-shadow-hover);
+      }
+
+      .glass-interactive:hover::before,
+      .glass-interactive:hover::after {
+        opacity: 1;
+      }
+    }
+
+    /* ========================================================================
+       SPRING BOUNCE & SMOOTH PRESS BUTTONS
+       ======================================================================== */
+    .btn-spring {
+      position: relative;
+      overflow: hidden;
+      touch-action: manipulation;
+      backface-visibility: hidden;
+      transition:
+        transform 0.28s var(--bounce-easing),
+        box-shadow 0.24s var(--spring-easing),
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .btn-spring:hover {
+        transform: translate3d(0, -2.5px, 0) scale3d(1.02, 1.02, 1);
+      }
+    }
+
+    .btn-spring:active {
+      transform: scale3d(0.945, 0.945, 1) !important;
+      transition-duration: 0.1s;
+    }
+
+    .btn-primary-gradient {
+      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 55%, #7c3aed 100%);
+      color: #ffffff;
+      box-shadow: 0 10px 24px -6px rgba(79, 70, 229, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .btn-primary-gradient:hover {
+        box-shadow: 0 14px 30px -6px rgba(124, 58, 237, 0.55), inset 0 1px 0 0 rgba(255, 255, 255, 0.45);
+      }
+    }
+
+    /* GPU Ripple Effect Element */
+    .ripple-wave {
+      position: absolute;
+      border-radius: 9999px;
+      transform: translate3d(0, 0, 0) scale3d(0, 0, 1);
+      animation: rippleExpand 0.42s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      background-color: rgba(255, 255, 255, 0.35);
+      pointer-events: none;
+      backface-visibility: hidden;
+    }
+
+    html:not(.dark) .ripple-wave-dark {
+      background-color: rgba(124, 58, 237, 0.16);
+    }
+
+    @keyframes rippleExpand {
+      to {
+        transform: translate3d(0, 0, 0) scale3d(3.1, 3.1, 1);
+        opacity: 0;
+      }
+    }
+
+    section {
+      overflow-x: clip;
+    }
+
+    /* ========================================================================
+       CENTER SCALE + FADE + SPRING PROJECT PREVIEW MODAL
+       ======================================================================== */
+    .modal-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background: rgba(7, 10, 17, 0.48);
+      transition: opacity 0.28s var(--spring-easing);
+    }
+
+    .modal-backdrop.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-spring-card {
+      opacity: 0;
+      transform-origin: center center;
+      transform: translate3d(0, 0, 0) scale3d(0.84, 0.84, 1);
+      backface-visibility: hidden;
+      transition:
+        opacity 0.28s var(--spring-easing),
+        transform 0.44s var(--modal-spring);
+    }
+
+    .modal-backdrop.is-open .modal-spring-card {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+
+    /* Live Status Pulse Dot */
+    .status-live-dot {
+      animation: livePulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; transform: scale3d(1, 1, 1); }
+      50% { opacity: 0.55; transform: scale3d(1.28, 1.28, 1); }
+    }
+
+    /* Toast Notification GPU Transition */
+    #toastBanner {
+      backface-visibility: hidden;
+      transition:
+        opacity 0.22s var(--spring-easing),
+        transform 0.26s var(--bounce-easing);
+    }
+
+    /* Safe Area Padding for Mobile Bottom Dock */
+    .mobile-dock-safe {
+      padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
+    }
+
+    /* Respect User Motion Preferences */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.12s !important;
+        scroll-behavior: auto !important;
+      }
+
+      .scroll-assemble {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-purple-500/25 selection:text-purple-600 dark:selection:text-purple-300">
+  <!-- ==========================================================================
+       BACKGROUND AMBIENT LAYER (FLOATING LIGHTS & SUBTLE GRID)
+       ========================================================================== -->
+  <div class="ambient-canvas" aria-hidden="true">
+    <div class="ambient-orb orb-primary"></div>
+    <div class="ambient-orb orb-secondary"></div>
+    <div class="ambient-orb orb-tertiary"></div>
+  </div>
+  <div class="subtle-grid" aria-hidden="true"></div>
+
+  <!-- ==========================================================================
+       TOP NAVIGATION BAR (SCROLL-LINKED MODULAR ASSEMBLY: LEFT / CENTER / RIGHT)
+       At Top: Separated Left, Center & Right Glass Islands
+       On Scroll Down: Gradually Converge & Lock into Unified Capsule Bar
+       On Scroll Up: Smoothly Separate Back to Left & Right Positions
+       ========================================================================== -->
+  <header class="fixed top-0 inset-x-0 z-40 px-3 sm:px-4 pt-3 sm:pt-4 pointer-events-none">
+    <nav id="topNavShell" aria-label="Primary Navigation" class="top-nav-shell max-w-5xl mx-auto rounded-full px-2 sm:px-3 py-1.5 sm:py-2 flex items-center justify-between gap-2 pointer-events-auto">
+      <!-- Unified Capsule Background Layer (Fades in smoothly as islands assemble) -->
+      <div id="topNavUnifiedBg" class="top-nav-unified-bg" aria-hidden="true"></div>
+
+      <!-- Left Island: Brand Identity -->
+      <a id="navLeftGroup" href="#home" data-nav-target="home" class="nav-island px-3 sm:px-3.5 py-1.5 flex items-center gap-2 sm:gap-2.5 group focus:outline-none shrink-0">
+        <span class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 flex items-center justify-center text-white font-display font-extrabold text-xs sm:text-sm shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform duration-200">
+          AX
+        </span>
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <span class="font-display font-bold text-sm sm:text-base tracking-tight text-[var(--text-primary)] whitespace-nowrap">
+            Creator Bio
+          </span>
+          <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider bg-purple-500/12 text-purple-700 dark:text-purple-300 border border-purple-500/25">
+            v1.0
+          </span>
+        </div>
+      </a>
+
+      <!-- Center Island: Desktop Menu Links with Sliding Capsule -->
+      <div id="navCenterGroup" class="nav-island hidden md:flex relative items-center gap-1 p-1">
+        <div id="desktopNavTrack" class="relative flex items-center gap-1 w-full">
+          <div id="desktopCapsulePill" class="sliding-purple-capsule" aria-hidden="true"></div>
+          <a href="#home" data-nav-target="home" data-i18n="nav.home" class="nav-link desktop-nav-link active px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">
+            ໜ້າຫຼັກ
+          </a>
+          <a href="#projects" data-nav-target="projects" data-i18n="nav.projects" class="nav-link desktop-nav-link px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">
+            ຜົນງານ
+          </a>
+          <a href="#about" data-nav-target="about" data-i18n="nav.about" class="nav-link desktop-nav-link px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">
+            ກ່ຽວກັບ
+          </a>
+          <a href="#contact" data-nav-target="contact" data-i18n="nav.contact" class="nav-link desktop-nav-link px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap">
+            ຕິດຕໍ່
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Island: 3-Language Switcher + Theme Toggle -->
+      <div id="navRightGroup" class="nav-island px-2 sm:px-2.5 py-1.5 flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <!-- Multi-Language Segmented Glass Pill -->
+        <div
+          role="group"
+          aria-label="Language Switcher"
+          class="inline-flex items-center p-0.5 sm:p-1 rounded-full bg-slate-900/[0.05] dark:bg-white/[0.07] border border-slate-900/[0.08] dark:border-white/[0.12]"
+        >
+          <button
+            type="button"
+            data-lang-btn="lo"
+            aria-label="ພາສາລາວ"
+            class="lang-btn active px-2 sm:px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+          >
+            ລາວ
+          </button>
+          <button
+            type="button"
+            data-lang-btn="th"
+            aria-label="ภาษาไทย"
+            class="lang-btn px-2 sm:px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+          >
+            ไทย
+          </button>
+          <button
+            type="button"
+            data-lang-btn="en"
+            aria-label="English"
+            class="lang-btn px-2 sm:px-2.5 py-1 rounded-full text-[11px] sm:text-xs font-semibold text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+          >
+            EN
+          </button>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button
+          id="themeToggleBtn"
+          type="button"
+          aria-label="Toggle Dark or Light Mode"
+          title="Switch Theme (Auto-detects System)"
+          class="btn-spring ripple-trigger w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-slate-900/[0.05] dark:bg-white/[0.07] hover:bg-slate-900/[0.1] dark:hover:bg-white/[0.14] border border-slate-900/[0.08] dark:border-white/[0.12] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+        >
+          <!-- Sun Icon (Shown in Dark Mode) -->
+          <svg id="sunIcon" class="w-4 h-4 sm:w-[18px] sm:h-[18px] hidden dark:block text-amber-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2"></path>
+            <path d="M12 20v2"></path>
+            <path d="m4.93 4.93 1.41 1.41"></path>
+            <path d="m17.66 17.66 1.41 1.41"></path>
+            <path d="M2 12h2"></path>
+            <path d="M20 12h2"></path>
+            <path d="m6.34 17.66-1.41 1.41"></path>
+            <path d="m19.07 4.93-1.41 1.41"></path>
+          </svg>
+          <!-- Moon Icon (Shown in Light Mode) -->
+          <svg id="moonIcon" class="w-4 h-4 sm:w-[18px] sm:h-[18px] block dark:hidden text-slate-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       MOBILE 3D FLOATING CAPSULE DOCK (SCROLL-LINKED EXPAND & ASSEMBLE)
+       ========================================================================== -->
+  <nav aria-label="Mobile Bottom Navigation" class="md:hidden fixed bottom-0 inset-x-0 z-40 px-4 mobile-dock-safe pointer-events-none">
+    <div id="mobileDockShell" class="max-w-md mx-auto floating-3d-dock rounded-full p-1.5 pointer-events-auto">
+      <div id="mobileNavTrack" class="relative grid grid-cols-4 gap-1 items-center">
+        <!-- Physical 3D Capsule Pill that glides smoothly to active tab -->
+        <div id="mobileCapsulePill" class="sliding-purple-capsule" aria-hidden="true"></div>
+
+        <a href="#home" data-nav-target="home" data-dock-slot="0" class="nav-link mobile-dock-link active flex flex-col items-center justify-center py-2 px-1 rounded-full text-[11px] font-medium">
+          <svg class="w-4 h-4 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span data-i18n="nav.home" class="truncate max-w-full px-0.5">ໜ້າຫຼັກ</span>
+        </a>
+
+        <a href="#projects" data-nav-target="projects" data-dock-slot="1" class="nav-link mobile-dock-link flex flex-col items-center justify-center py-2 px-1 rounded-full text-[11px] font-medium">
+          <svg class="w-4 h-4 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="7" height="7" x="3" y="3" rx="1.5"></rect>
+            <rect width="7" height="7" x="14" y="3" rx="1.5"></rect>
+            <rect width="7" height="7" x="14" y="14" rx="1.5"></rect>
+            <rect width="7" height="7" x="3" y="14" rx="1.5"></rect>
+          </svg>
+          <span data-i18n="nav.projects" class="truncate max-w-full px-0.5">ຜົນງານ</span>
+        </a>
+
+        <a href="#about" data-nav-target="about" data-dock-slot="2" class="nav-link mobile-dock-link flex flex-col items-center justify-center py-2 px-1 rounded-full text-[11px] font-medium">
+          <svg class="w-4 h-4 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M20 21a8 8 0 0 0-16 0"></path>
+          </svg>
+          <span data-i18n="nav.about" class="truncate max-w-full px-0.5">ກ່ຽວກັບ</span>
+        </a>
+
+        <a href="#contact" data-nav-target="contact" data-dock-slot="3" class="nav-link mobile-dock-link flex flex-col items-center justify-center py-2 px-1 rounded-full text-[11px] font-medium">
+          <svg class="w-4 h-4 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span data-i18n="nav.contact" class="truncate max-w-full px-0.5">ຕິດຕໍ່</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-32 md:pb-16 space-y-20 sm:space-y-28">
+
+    <!-- ========================================================================
+         SECTION 1: HERO & IDENTITY PROFILE (REVERSIBLE LEFT/RIGHT CURTAIN MOTION)
+         ======================================================================== -->
+    <section id="home" class="scroll-mt-28">
+      <div class="liquid-glass rounded-[32px] sm:rounded-[38px] p-7 sm:p-11 md:p-14 relative overflow-hidden">
+        <!-- Subtle Top Specular Glow -->
+        <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[80%] h-40 bg-gradient-to-b from-purple-500/15 via-indigo-500/5 to-transparent blur-2xl"></div>
+
+        <div class="relative max-w-3xl mx-auto flex flex-col items-center text-center">
+          <div class="w-full space-y-5">
+            <!-- Creator Badge (Left) & Role Tag (Right) -->
+            <div class="flex flex-wrap items-center justify-center gap-2.5">
+              <span data-hero-part="left" data-weight="1.15" class="scroll-assemble inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold tracking-wide bg-purple-500/12 dark:bg-purple-400/15 text-purple-700 dark:text-purple-300 border border-purple-500/25 dark:border-purple-400/25 shadow-sm">
+                <svg class="w-3.5 h-3.5 text-purple-600 dark:text-purple-300" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L14.8 8.6L22 9.3L16.5 14L18.2 21L12 17.3L5.8 21L7.5 14L2 9.3L9.2 8.6L12 2Z" />
+                </svg>
+                <span data-i18n="hero.badgeCreator">ຜູ້ສ້າງສັນ</span>
+              </span>
+              <span data-hero-part="right" data-weight="1.15" data-i18n="hero.roleTag" class="scroll-assemble inline-flex items-center px-3.5 py-1 rounded-full text-xs font-medium bg-slate-900/[0.05] dark:bg-white/[0.07] text-[var(--text-secondary)] border border-slate-900/[0.07] dark:border-white/[0.1]">
+                ນັກພັດທະນາເວັບ &amp; ເກມ
+              </span>
+            </div>
+
+            <!-- Creator Name (Left) & Subtitle (Right) -->
+            <div class="space-y-2.5">
+              <h1 data-hero-part="left" data-weight="0.9" class="scroll-assemble font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-[var(--text-primary)] leading-[1.08]">
+                Alex
+              </h1>
+              <p data-hero-part="right" data-weight="0.9" data-i18n="hero.roleSubtitle" class="scroll-assemble text-base sm:text-lg font-semibold bg-gradient-to-r from-blue-600 via-indigo-500 to-purple-600 dark:from-sky-400 dark:via-indigo-300 dark:to-purple-400 bg-clip-text text-transparent">
+                ນັກພັດທະນາເວັບ &amp; ເກມ
+              </p>
+            </div>
+
+            <!-- Intro Bio Statement (Center Layered Depth) -->
+            <p data-hero-part="center" data-weight="0.7" data-i18n="hero.intro" class="scroll-assemble text-base sm:text-lg text-[var(--text-secondary)] max-w-2xl leading-relaxed mx-auto">
+              "ຍິນດີຕ້ອນຮັບສູ່ໂລກແຫ່ງຄວາມຄິດສ້າງສັນຂອງຂ້ອຍ. ສຳຫຼວດເວັບໄຊ, ເກມ ແລະ ຜົນງານດິຈິຕອລຕ່າງໆຂອງຂ້ອຍ."
+            </p>
+
+            <!-- Primary CTA (Left) & Secondary CTA (Right) -->
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5">
+              <a
+                href="#projects"
+                data-nav-target="projects"
+                data-hero-part="left"
+                data-weight="1.25"
+                class="scroll-assemble btn-spring btn-primary-gradient ripple-trigger inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm sm:text-base min-h-[48px]"
+              >
+                <span data-i18n="hero.btnProjects">ເບິ່ງຜົນງານຂອງຂ້ອຍ</span>
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+
+              <a
+                href="#contact"
+                data-nav-target="contact"
+                data-hero-part="right"
+                data-weight="1.25"
+                class="scroll-assemble btn-spring ripple-trigger ripple-wave-dark inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-sm sm:text-base bg-white/75 dark:bg-white/[0.08] hover:bg-white dark:hover:bg-white/[0.14] text-[var(--text-primary)] border border-slate-900/10 dark:border-white/15 shadow-sm min-h-[48px]"
+              >
+                <svg class="w-4 h-4 text-purple-600 dark:text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span data-i18n="hero.btnContact">ຕິດຕໍ່ຂ້ອຍ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 2: MY PROJECTS (SCROLL-SCRUBBED REVERSIBLE SIDE-TO-CENTER CARDS)
+         ======================================================================== -->
+    <section id="projects" class="scroll-mt-28 space-y-8">
+      <!-- Section Header (Left Title & Right Subtitle Converge on Scroll) -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 px-1">
+        <div data-assemble="left" data-offset="34" class="scroll-assemble space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-500/10 dark:bg-indigo-400/15 text-indigo-600 dark:text-indigo-300 border border-indigo-500/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 dark:bg-indigo-400"></span>
+            <span data-i18n="projects.badge">ຜົນງານເດັ່ນ</span>
+          </div>
+          <h2 data-i18n="projects.title" class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-[var(--text-primary)]">
+            ຜົນງານຂອງຂ້ອຍ
+          </h2>
+        </div>
+        <p data-assemble="right" data-offset="34" data-i18n="projects.subtitle" class="scroll-assemble text-sm sm:text-base text-[var(--text-secondary)] max-w-md">
+          ເວັບແອັບພລິເຄຊັນ, ເກມເທິງເບຣົາເຊີ ແລະ ເຄື່ອງມືດິຈິຕອລທີ່ສ້າງຂຶ້ນດ້ວຍຄວາມຕັ້ງໃຈ.
+        </p>
+      </div>
+
+      <!-- Dynamic Projects Grid (Left & Right Cards Assemble Together on Scroll Down, Separate on Scroll Up) -->
+      <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-7"></div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3: ABOUT CREATOR & SKILLS (REVERSIBLE SIDE-TO-CENTER ASSEMBLY)
+         ======================================================================== -->
+    <section id="about" class="scroll-mt-28 space-y-8">
+      <div class="liquid-glass rounded-[32px] p-6 sm:p-9 md:p-10 space-y-8">
+        <!-- About Creator Header (Left) & Bio Card (Right) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+          <div data-assemble="left" data-offset="38" class="scroll-assemble lg:col-span-5 space-y-3">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-sky-500/10 dark:bg-sky-400/15 text-sky-700 dark:text-sky-300 border border-sky-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-sky-500 dark:bg-sky-400"></span>
+              <span data-i18n="about.badge">ກ່ຽວກັບຜູ້ສ້າງ</span>
+            </div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-[var(--text-primary)]">
+              Alex
+            </h2>
+            <p data-i18n="about.role" class="text-sm sm:text-base font-semibold text-purple-600 dark:text-purple-400">
+              ນັກພັດທະນາເວັບ &amp; ເກມ
+            </p>
+          </div>
+
+          <div data-assemble="right" data-offset="38" class="scroll-assemble lg:col-span-7">
+            <div class="p-5 sm:p-6 rounded-[24px] bg-slate-900/[0.03] dark:bg-white/[0.04] border border-slate-900/[0.06] dark:border-white/[0.08]">
+              <p data-i18n="about.bio" class="text-base sm:text-lg text-[var(--text-secondary)] leading-relaxed">
+                "ຂ້ອຍມັກການສ້າງເວັບໄຊ, ປະສົບການແບບໂຕ້ຕອບ ແລະ ເກມ. ນີ້ແມ່ນພື້ນທີ່ສ່ວນຕົວຂອງຂ້ອຍເພື່ອສະແດງຄວາມຄິດສ້າງສັນ ແລະ ຜົນງານດິຈິຕອລ."
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="h-px w-full bg-gradient-to-r from-transparent via-slate-900/10 dark:via-white/10 to-transparent"></div>
+
+        <!-- Core Skills Cards (Alternating Left/Right Scroll Assembly) -->
+        <div class="space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 data-assemble="left" data-offset="26" data-i18n="about.skillsTitle" class="scroll-assemble font-display font-bold text-lg sm:text-xl text-[var(--text-primary)]">
+              ທັກສະຫຼັກ &amp; ຄວາມຊ່ຽວຊານ
+            </h3>
+            <span data-assemble="right" data-offset="26" data-i18n="about.skillsCount" class="scroll-assemble text-xs font-medium text-[var(--text-muted)]">
+              5 ສາຂາ
+            </span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Skill 1: Web Development (Left) -->
+            <div data-assemble="left" data-offset="42" class="scroll-assemble glass-interactive liquid-glass rounded-[22px] p-4 sm:p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-2xl shrink-0 bg-blue-500/12 dark:bg-blue-400/15 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-sky-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="skills.webTitle" class="font-display font-bold text-base text-[var(--text-primary)]">
+                  ພັດທະນາເວັບໄຊ (Web Development)
+                </h4>
+                <p data-i18n="skills.webDesc" class="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                  ເວັບໄຊ ແລະ ເວັບແອັບສະໄໝໃໝ່ທີ່ຮອງຮັບທຸກໜ້າຈໍ
+                </p>
+              </div>
+            </div>
+
+            <!-- Skill 2: HTML / CSS / JavaScript (Right) -->
+            <div data-assemble="right" data-offset="42" class="scroll-assemble glass-interactive liquid-glass rounded-[22px] p-4 sm:p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-2xl shrink-0 bg-amber-500/12 dark:bg-amber-400/15 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="skills.codeTitle" class="font-display font-bold text-base text-[var(--text-primary)]">
+                  HTML / CSS / JavaScript
+                </h4>
+                <p data-i18n="skills.codeDesc" class="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                  ໂຄງສ້າງໂຄ້ດທີ່ສະອາດ ແລະ ການໂຕ້ຕອບທີ່ລື່ນໄຫຼ
+                </p>
+              </div>
+            </div>
+
+            <!-- Skill 3: UI / UX Design (Left) -->
+            <div data-assemble="left" data-offset="42" class="scroll-assemble glass-interactive liquid-glass rounded-[22px] p-4 sm:p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-2xl shrink-0 bg-purple-500/12 dark:bg-purple-400/15 border border-purple-500/20 flex items-center justify-center text-purple-600 dark:text-purple-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="4"></rect>
+                  <path d="M3 9h18"></path>
+                  <path d="M9 21V9"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="skills.uiTitle" class="font-display font-bold text-base text-[var(--text-primary)]">
+                  ອອກແບບ UI / UX
+                </h4>
+                <p data-i18n="skills.uiDesc" class="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                  ອິນເຕີເຟສແບບກະຈົກໃສທີ່ໃຊ້ງານງ່າຍ ແລະ ມີມິຕິ
+                </p>
+              </div>
+            </div>
+
+            <!-- Skill 4: Game Development (Left) -->
+            <div data-assemble="left" data-offset="42" class="scroll-assemble glass-interactive liquid-glass rounded-[22px] p-4 sm:p-5 flex items-start gap-4">
+              <div class="w-11 h-11 rounded-2xl shrink-0 bg-emerald-500/12 dark:bg-emerald-400/15 border border-emerald-500/20 flex items-center justify-center text-emerald-600 dark:text-emerald-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="6" y1="12" x2="10" y2="12"></line>
+                  <line x1="8" y1="10" x2="8" y2="14"></line>
+                  <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                  <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                  <rect x="2" y="6" width="20" height="12" rx="4"></rect>
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="skills.gameTitle" class="font-display font-bold text-base text-[var(--text-primary)]">
+                  ພັດທະນາເກມ (Game Development)
+                </h4>
+                <p data-i18n="skills.gameDesc" class="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                  ເກມເທິງເບຣົາເຊີທີ່ຫຼິ້ນໄດ້ຈິງ ແລະ ມ່ວນຊື່ນ
+                </p>
+              </div>
+            </div>
+
+            <!-- Skill 5: Creative Projects (Right) -->
+            <div data-assemble="right" data-offset="42" class="scroll-assemble glass-interactive liquid-glass rounded-[22px] p-4 sm:p-5 flex items-start gap-4 sm:col-span-2 lg:col-span-2">
+              <div class="w-11 h-11 rounded-2xl shrink-0 bg-pink-500/12 dark:bg-pink-400/15 border border-pink-500/20 flex items-center justify-center text-pink-600 dark:text-pink-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v3"></path>
+                  <path d="M18.36 5.64l-2.12 2.12"></path>
+                  <path d="M21 12h-3"></path>
+                  <path d="M18.36 18.36l-2.12-2.12"></path>
+                  <path d="M12 18v3"></path>
+                  <path d="M7.76 16.24l-2.12 2.12"></path>
+                  <path d="M6 12H3"></path>
+                  <path d="M7.76 7.76L5.64 5.64"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 data-i18n="skills.creativeTitle" class="font-display font-bold text-base text-[var(--text-primary)]">
+                  ໂປຣເຈັກສ້າງສັນ (Creative Projects)
+                </h4>
+                <p data-i18n="skills.creativeDesc" class="text-xs sm:text-sm text-[var(--text-muted)] mt-1">
+                  ເຄື່ອງມືດ້ານພາສາ, ການທົດລອງໃໝ່ໆ ແລະ ໄອເດຍດິຈິຕອລ
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 4: SOCIAL MEDIA & CONTACT ("CONNECT WITH ME")
+         ======================================================================== -->
+    <section id="contact" class="scroll-mt-28 space-y-8">
+      <!-- Section Header (Left Title & Right Subtitle Converge on Scroll) -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 px-1">
+        <div data-assemble="left" data-offset="34" class="scroll-assemble space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-emerald-500/10 dark:bg-emerald-400/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"></span>
+            <span data-i18n="contact.badge">ຊ່ອງທາງຕິດຕໍ່ໂດຍກົງ</span>
+          </div>
+          <h2 data-i18n="contact.title" class="font-display font-extrabold text-3xl sm:text-4xl tracking-tight text-[var(--text-primary)]">
+            ຕິດຕໍ່ກັບຂ້ອຍ
+          </h2>
+        </div>
+        <p data-assemble="right" data-offset="34" data-i18n="contact.subtitle" class="scroll-assemble text-sm sm:text-base text-[var(--text-secondary)] max-w-md">
+          ຕິດຕາມຜົນງານລ່າສຸດ ຫຼື ທັກທາຍສອບຖາມໂດຍກົງຜ່ານຊ່ອງທາງທີ່ທ່ານສະດວກ.
+        </p>
+      </div>
+
+      <!-- 4 Real Contact & Social Cards (Left Column from Left, Right Column from Right) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+        <!-- 1. TikTok Card (Left) -->
+        <a
+          href="https://www.tiktok.com/@alex_xa158?_r=1&_t=ZS-9BUtO255JtF"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-assemble="left"
+          data-offset="46"
+          class="scroll-assemble glass-interactive liquid-glass ripple-trigger ripple-wave-dark rounded-[26px] p-5 sm:p-6 flex items-center justify-between gap-4 group"
+        >
+          <div class="flex items-center gap-4 min-w-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl shrink-0 bg-slate-900 dark:bg-white/10 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h3 class="font-display font-bold text-lg text-[var(--text-primary)]">
+                  TikTok
+                </h3>
+                <span data-i18n="contact.tiktokTag" class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-slate-900/[0.06] dark:bg-white/[0.08] text-[var(--text-muted)]">
+                  ຜູ້ສ້າງ
+                </span>
+              </div>
+              <p class="text-sm text-[var(--text-secondary)] truncate mt-0.5">
+                @alex_xa158
+              </p>
+            </div>
+          </div>
+
+          <span class="w-11 h-11 rounded-full shrink-0 flex items-center justify-center bg-slate-900/[0.05] dark:bg-white/[0.08] text-[var(--text-primary)] group-hover:bg-purple-600 group-hover:text-white transition-colors duration-200">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </span>
+        </a>
+
+        <!-- 2. Facebook Card (Right) -->
+        <a
+          href="https://www.facebook.com/share/19kq6z2yVb/"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-assemble="right"
+          data-offset="46"
+          class="scroll-assemble glass-interactive liquid-glass ripple-trigger ripple-wave-dark rounded-[26px] p-5 sm:p-6 flex items-center justify-between gap-4 group"
+        >
+          <div class="flex items-center gap-4 min-w-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl shrink-0 bg-[#1877F2] text-white flex items-center justify-center shadow-md shadow-blue-600/25 group-hover:scale-105 transition-transform duration-200">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z" />
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h3 class="font-display font-bold text-lg text-[var(--text-primary)]">
+                  Facebook
+                </h3>
+                <span data-i18n="contact.facebookTag" class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-sky-300">
+                  ໂຊຊຽວ
+                </span>
+              </div>
+              <p class="text-sm text-[var(--text-secondary)] truncate mt-0.5">
+                Alex
+              </p>
+            </div>
+          </div>
+
+          <span class="w-11 h-11 rounded-full shrink-0 flex items-center justify-center bg-slate-900/[0.05] dark:bg-white/[0.08] text-[var(--text-primary)] group-hover:bg-[#1877F2] group-hover:text-white transition-colors duration-200">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </span>
+        </a>
+
+        <!-- 3. Email Card (Left) -->
+        <div
+          data-assemble="left"
+          data-offset="46"
+          class="scroll-assemble glass-interactive liquid-glass rounded-[26px] p-5 sm:p-6 flex items-center justify-between gap-3 group"
+        >
+          <a
+            href="mailto:alex889100@gmail.com"
+            class="flex items-center gap-4 min-w-0 flex-1 focus:outline-none"
+          >
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl shrink-0 bg-gradient-to-br from-rose-500 to-orange-500 text-white flex items-center justify-center shadow-md shadow-rose-500/25 group-hover:scale-105 transition-transform duration-200">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="20" height="16" x="2" y="4" rx="3"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h3 class="font-display font-bold text-lg text-[var(--text-primary)]">
+                  Email
+                </h3>
+                <span data-i18n="contact.emailTag" class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-300">
+                  ໂດຍກົງ
+                </span>
+              </div>
+              <p class="text-sm text-[var(--text-secondary)] truncate mt-0.5">
+                alex889100@gmail.com
+              </p>
+            </div>
+          </a>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <!-- Quick Copy Email Helper Button -->
+            <button
+              type="button"
+              id="copyEmailBtn"
+              data-copy-text="alex889100@gmail.com"
+              title="Copy Email Address"
+              aria-label="Copy Email Address"
+              class="btn-spring w-11 h-11 rounded-full flex items-center justify-center bg-slate-900/[0.05] dark:bg-white/[0.08] hover:bg-slate-900/[0.12] dark:hover:bg-white/[0.16] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+            </button>
+
+            <!-- Primary Mailto Action Button -->
+            <a
+              href="mailto:alex889100@gmail.com"
+              aria-label="Send Email to Alex"
+              class="btn-spring w-11 h-11 rounded-full flex items-center justify-center bg-slate-900/[0.05] dark:bg-white/[0.08] text-[var(--text-primary)] group-hover:bg-rose-500 group-hover:text-white transition-colors duration-200"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 17 17 7"></path>
+                <path d="M7 7h10v10"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. WhatsApp Card (Right) -->
+        <a
+          href="https://wa.me/8562091415737"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-assemble="right"
+          data-offset="46"
+          class="scroll-assemble glass-interactive liquid-glass ripple-trigger ripple-wave-dark rounded-[26px] p-5 sm:p-6 flex items-center justify-between gap-4 group"
+        >
+          <div class="flex items-center gap-4 min-w-0">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl shrink-0 bg-[#25D366] text-white flex items-center justify-center shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform duration-200">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3 0-1.43.75-2.13 1.01-2.42.27-.29.58-.36.77-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.82 2.01.89 2.15.07.15.12.32.02.51-.1.19-.15.32-.29.49-.15.17-.31.38-.44.51-.15.15-.3.31-.13.61.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.7.8 1.99.95.29.14.48.22.55.34.07.12.07.7-.17 1.38z" />
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <div class="flex items-center gap-2">
+                <h3 class="font-display font-bold text-lg text-[var(--text-primary)]">
+                  WhatsApp
+                </h3>
+                <span data-i18n="contact.whatsappTag" class="text-[11px] font-medium px-2 py-0.5 rounded-full bg-emerald-500/12 text-emerald-700 dark:text-emerald-300">
+                  ແຊັດ
+                </span>
+              </div>
+              <p class="text-sm text-[var(--text-secondary)] truncate mt-0.5">
+                +856 20 9141 5737
+              </p>
+            </div>
+          </div>
+
+          <span class="w-11 h-11 rounded-full shrink-0 flex items-center justify-center bg-slate-900/[0.05] dark:bg-white/[0.08] text-[var(--text-primary)] group-hover:bg-[#25D366] group-hover:text-white transition-colors duration-200">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 5: FOOTER (REVERSIBLE SIDE-TO-CENTER CONVERGING MOTION)
+         ======================================================================== -->
+    <footer class="pt-4 overflow-x-clip">
+      <div class="liquid-glass rounded-[28px] px-6 py-7 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div data-assemble="left" data-offset="34" class="scroll-assemble space-y-1">
+          <div class="flex items-center justify-center sm:justify-start gap-2">
+            <span class="font-display font-bold text-base text-[var(--text-primary)]">
+              Creator Bio
+            </span>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-slate-900/[0.06] dark:bg-white/[0.08] text-[var(--text-muted)]">
+              v1.0
+            </span>
+          </div>
+          <p data-i18n="footer.createdBy" class="text-sm font-medium text-[var(--text-secondary)]">
+            ສ້າງສັນໂດຍ Alex
+          </p>
+        </div>
+
+        <div data-assemble="right" data-offset="34" class="scroll-assemble space-y-1 sm:text-right">
+          <p data-i18n="footer.madeWith" class="text-sm font-medium text-[var(--text-secondary)]">
+            ສ້າງດ້ວຍຄວາມຄິດສ້າງສັນ
+          </p>
+          <p class="text-xs text-[var(--text-muted)]">
+            &copy; 2026 Alex. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ==========================================================================
+       CENTER SCALE + FADE + SPRING PROJECT PREVIEW MODAL
+       ========================================================================== -->
+  <div
+    id="projectModal"
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalProjectTitle"
+    aria-hidden="true"
+  >
+    <div class="modal-spring-card liquid-glass-nav w-full max-w-lg rounded-[30px] overflow-hidden shadow-2xl">
+      <!-- Modal Cover Banner -->
+      <div id="modalCoverContainer" class="relative aspect-[16/9] w-full overflow-hidden border-b border-slate-900/[0.08] dark:border-white/[0.1]"></div>
+
+      <!-- Modal Content -->
+      <div class="p-6 sm:p-7 space-y-5">
+        <div class="flex items-start justify-between gap-3">
+          <div class="space-y-1.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="modalCategoryBadge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-purple-500/12 text-purple-700 dark:text-purple-300 border border-purple-500/20">
+                Game / Interactive
+              </span>
+              <span id="modalVersionBadge" class="hidden px-2.5 py-0.5 rounded-full text-xs font-bold bg-sky-500/12 text-sky-700 dark:text-sky-300 border border-sky-500/25">
+                V2.2Beta
+              </span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/12 text-emerald-700 dark:text-emerald-300 border border-emerald-500/25">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 status-live-dot"></span>
+                <span>Live</span>
+              </span>
+            </div>
+            <h3 id="modalProjectTitle" class="font-display font-extrabold text-2xl text-[var(--text-primary)]">
+              Project Title
+            </h3>
+          </div>
+
+          <button
+            type="button"
+            id="closeModalBtn"
+            aria-label="Close Preview"
+            class="btn-spring w-10 h-10 rounded-full shrink-0 flex items-center justify-center bg-slate-900/[0.06] dark:bg-white/[0.1] hover:bg-slate-900/[0.12] dark:hover:bg-white/[0.18] text-[var(--text-primary)]"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 6 6 18"></path>
+              <path d="m6 6 12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Published Date Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-900/[0.04] dark:bg-white/[0.06] text-[var(--text-secondary)] border border-slate-900/[0.07] dark:border-white/[0.09]">
+          <svg class="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span id="modalDateLabel">Published Date:</span>
+          <strong id="modalDateValue" class="font-semibold text-[var(--text-primary)]">21/11/2026</strong>
+        </div>
+
+        <p id="modalProjectDesc" class="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
+          Project description
+        </p>
+
+        <div class="pt-1 flex items-center gap-3">
+          <a
+            id="modalLaunchLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-spring btn-primary-gradient ripple-trigger flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold min-h-[48px]"
+          >
+            <span id="modalLaunchText">Visit Project</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 17 17 7"></path>
+              <path d="M7 7h10v10"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subtle Floating Toast Notification -->
+  <div
+    id="toastBanner"
+    role="status"
+    aria-live="polite"
+    class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 -translate-y-3"
+  >
+    <div class="liquid-glass-nav px-4 py-2.5 rounded-full flex items-center gap-2 text-xs sm:text-sm font-semibold text-[var(--text-primary)] shadow-lg">
+      <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+      <span id="toastMessage">Copied to clipboard</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT ENGINE:
+       1. MULTI-LANGUAGE (LO / TH / EN)
+       2. 3D SLIDING CAPSULE NAVIGATION
+       3. 120HZ SCROLL-LINKED REVERSIBLE ASSEMBLY ENGINE (ZERO FORCED REFLOWS)
+       ========================================================================== -->
+  <script>
+    /**
+     * 1. CREATOR CONFIGURATION
+     */
+    const CREATOR_CONFIG = {
+      name: 'Alex',
+      role: 'Web & Game Creator',
+    };
+
+    /**
+     * 2. MULTI-LANGUAGE DICTIONARY (1: LAO [DEFAULT], 2: THAI, 3: ENGLISH)
+     */
+    const TRANSLATIONS = {
+      lo: {
+        nav: {
+          home: 'ໜ້າຫຼັກ',
+          projects: 'ຜົນງານ',
+          about: 'ກ່ຽວກັບ',
+          contact: 'ຕິດຕໍ່',
+        },
+        hero: {
+          badgeCreator: 'ຜູ້ສ້າງສັນ',
+          roleTag: 'ນັກພັດທະນາເວັບ & ເກມ',
+          roleSubtitle: 'ນັກພັດທະນາເວັບ & ເກມ',
+          intro: '"ຍິນດີຕ້ອນຮັບສູ່ໂລກແຫ່ງຄວາມຄິດສ້າງສັນຂອງຂ້ອຍ. ສຳຫຼວດເວັບໄຊ, ເກມ ແລະ ຜົນງານດິຈິຕອລຕ່າງໆຂອງຂ້ອຍ."',
+          btnProjects: 'ເບິ່ງຜົນງານຂອງຂ້ອຍ',
+          btnContact: 'ຕິດຕໍ່ຂ້ອຍ',
+        },
+        projects: {
+          badge: 'ຜົນງານເດັ່ນ',
+          title: 'ຜົນງານຂອງຂ້ອຍ',
+          subtitle: 'ເວັບແອັບພລິເຄຊັນ, ເກມເທິງເບຣົາເຊີ ແລະ ເຄື່ອງມືດິຈິຕອລທີ່ສ້າງຂຶ້ນດ້ວຍຄວາມຕັ້ງໃຈ.',
+          liveApp: 'ເວັບແອັບໃຊ້ງານຈິງ',
+          publishedDate: 'ວັນທີເຜີຍແຜ່',
+          previewDetails: 'ລາຍລະອຽດ',
+        },
+        about: {
+          badge: 'ກ່ຽວກັບຜູ້ສ້າງ',
+          role: 'ນັກພັດທະນາເວັບ & ເກມ',
+          bio: '"ຂ້ອຍມັກການສ້າງເວັບໄຊ, ປະສົບການແບບໂຕ້ຕອບ ແລະ ເກມ. ນີ້ແມ່ນພື້ນທີ່ສ່ວນຕົວຂອງຂ້ອຍເພື່ອສະແດງຄວາມຄິດສ້າງສັນ ແລະ ຜົນງານດິຈິຕອລ."',
+          skillsTitle: 'ທັກສະຫຼັກ & ຄວາມຊ່ຽວຊານ',
+          skillsCount: '5 ສາຂາ',
+        },
+        skills: {
+          webTitle: 'ພັດທະນາເວັບໄຊ (Web Development)',
+          webDesc: 'ເວັບໄຊ ແລະ ເວັບແອັບສະໄໝໃໝ່ທີ່ຮອງຮັບທຸກໜ້າຈໍ',
+          codeTitle: 'HTML / CSS / JavaScript',
+          codeDesc: 'ໂຄງສ້າງໂຄ້ດທີ່ສະອາດ ແລະ ການໂຕ້ຕອບທີ່ລື່ນໄຫຼ',
+          uiTitle: 'ອອກແບບ UI / UX',
+          uiDesc: 'ອິນເຕີເຟສແບບກະຈົກໃສທີ່ໃຊ້ງານງ່າຍ ແລະ ມີມິຕິ',
+          gameTitle: 'ພັດທະນາເກມ (Game Development)',
+          gameDesc: 'ເກມເທິງເບຣົາເຊີທີ່ຫຼິ້ນໄດ້ຈິງ ແລະ ມ່ວນຊື່ນ',
+          creativeTitle: 'ໂປຣເຈັກສ້າງສັນ (Creative Projects)',
+          creativeDesc: 'ເຄື່ອງມືດ້ານພາສາ, ການທົດລອງໃໝ່ໆ ແລະ ໄອເດຍດິຈິຕອລ',
+        },
+        contact: {
+          badge: 'ຊ່ອງທາງຕິດຕໍ່ໂດຍກົງ',
+          title: 'ຕິດຕໍ່ກັບຂ້ອຍ',
+          subtitle: 'ຕິດຕາມຜົນງານລ່າສຸດ ຫຼື ທັກທາຍສອບຖາມໂດຍກົງຜ່ານຊ່ອງທາງທີ່ທ່ານສະດວກ.',
+          tiktokTag: 'ຜູ້ສ້າງ',
+          facebookTag: 'ໂຊຊຽວ',
+          emailTag: 'ໂດຍກົງ',
+          whatsappTag: 'ແຊັດ',
+        },
+        footer: {
+          createdBy: 'ສ້າງສັນໂດຍ Alex',
+          madeWith: 'ສ້າງດ້ວຍຄວາມຄິດສ້າງສັນ',
+        },
+        toast: {
+          copied: 'ຄັດລອກແລ້ວ:',
+          langSwitched: 'ພາສາລາວ',
+        },
+      },
+      th: {
+        nav: {
+          home: 'หน้าแรก',
+          projects: 'ผลงาน',
+          about: 'เกี่ยวกับ',
+          contact: 'ติดต่อ',
+        },
+        hero: {
+          badgeCreator: 'ครีเอเตอร์',
+          roleTag: 'นักพัฒนาเว็บ & เกม',
+          roleSubtitle: 'นักพัฒนาเว็บ & เกม',
+          intro: '"ยินดีต้อนรับสู่โลกแห่งความคิดสร้างสรรค์ของผม สำรวจเว็บไซต์ เกม และผลงานดิจิทัลต่าง ๆ ได้ที่นี่"',
+          btnProjects: 'ดูผลงานของฉัน',
+          btnContact: 'ติดต่อฉัน',
+        },
+        projects: {
+          badge: 'ผลงานโดดเด่น',
+          title: 'ผลงานของฉัน',
+          subtitle: 'เว็บแอปพลิเคชัน เกมบนเบราว์เซอร์ และเครื่องมือดิจิทัลที่สร้างสรรค์ขึ้นด้วยความตั้งใจ',
+          liveApp: 'เว็บแอปใช้งานจริง',
+          publishedDate: 'วันที่เผยแพร่',
+          previewDetails: 'รายละเอียด',
+        },
+        about: {
+          badge: 'เกี่ยวกับผู้สร้าง',
+          role: 'นักพัฒนาเว็บ & เกม',
+          bio: '"ผมชื่นชอบการสร้างเว็บไซต์ ประสบการณ์แบบโต้ตอบ และเกม พื้นที่ส่วนตัวนี้สร้างขึ้นเพื่อจัดแสดงความคิดสร้างสรรค์และผลงานดิจิทัลของผม"',
+          skillsTitle: 'ทักษะหลัก & ความเชี่ยวชาญ',
+          skillsCount: '5 ด้าน',
+        },
+        skills: {
+          webTitle: 'พัฒนาเว็บไซต์ (Web Development)',
+          webDesc: 'เว็บไซต์และเว็บแอปสมัยใหม่ที่รองรับทุกขนาดหน้าจอ',
+          codeTitle: 'HTML / CSS / JavaScript',
+          codeDesc: 'โครงสร้างโค้ดที่สะอาดและการโต้ตอบที่ลื่นไหล',
+          uiTitle: 'ออกแบบ UI / UX',
+          uiDesc: 'อินเทอร์เฟซกระจกใสที่ใช้งานง่ายและมีมิติ',
+          gameTitle: 'พัฒนาเกม (Game Development)',
+          gameDesc: 'เกมบนเบราว์เซอร์ที่เล่นได้จริงและสนุกสนาน',
+          creativeTitle: 'โปรเจกต์สร้างสรรค์ (Creative Projects)',
+          creativeDesc: 'เครื่องมือด้านภาษา การทดลองใหม่ ๆ และไอเดียดิจิทัล',
+        },
+        contact: {
+          badge: 'ช่องทางติดต่อโดยตรง',
+          title: 'ติดต่อกับฉัน',
+          subtitle: 'ติดตามผลงานล่าสุด หรือทักทายพูดคุยโดยตรงผ่านช่องทางที่คุณสะดวก',
+          tiktokTag: 'ครีเอเตอร์',
+          facebookTag: 'โซเชียล',
+          emailTag: 'โดยตรง',
+          whatsappTag: 'แชท',
+        },
+        footer: {
+          createdBy: 'สร้างสรรค์โดย Alex',
+          madeWith: 'สร้างด้วยความคิดสร้างสรรค์',
+        },
+        toast: {
+          copied: 'คัดลอกแล้ว:',
+          langSwitched: 'ภาษาไทย',
+        },
+      },
+      en: {
+        nav: {
+          home: 'Home',
+          projects: 'Projects',
+          about: 'About',
+          contact: 'Contact',
+        },
+        hero: {
+          badgeCreator: 'Creator',
+          roleTag: 'Web & Game Creator',
+          roleSubtitle: 'Web & Game Creator',
+          intro: '"Welcome to my creative world. Explore my websites, games and digital creations."',
+          btnProjects: 'View My Projects',
+          btnContact: 'Contact Me',
+        },
+        projects: {
+          badge: 'Featured Creations',
+          title: 'My Projects',
+          subtitle: 'Interactive web applications, browser games, and digital tools crafted from scratch.',
+          liveApp: 'Live Web App',
+          publishedDate: 'Published Date',
+          previewDetails: 'Details',
+        },
+        about: {
+          badge: 'About Creator',
+          role: 'Web & Game Creator',
+          bio: '"I enjoy creating websites, interactive experiences and games. This is my personal space to showcase my creativity and digital projects."',
+          skillsTitle: 'Core Skills & Focus Areas',
+          skillsCount: '5 Disciplines',
+        },
+        skills: {
+          webTitle: 'Web Development',
+          webDesc: 'Responsive modern websites & web apps',
+          codeTitle: 'HTML / CSS / JavaScript',
+          codeDesc: 'Clean architecture & vanilla interactivity',
+          uiTitle: 'UI / UX Design',
+          uiDesc: 'Intuitive glass interfaces & smooth motion',
+          gameTitle: 'Game Development',
+          gameDesc: 'Playable browser games & fun mechanics',
+          creativeTitle: 'Creative Projects',
+          creativeDesc: 'Language tools, interactive experiments & original digital concepts',
+        },
+        contact: {
+          badge: 'Direct Channels',
+          title: 'Connect With Me',
+          subtitle: 'Follow my latest creations or reach out directly through your preferred platform.',
+          tiktokTag: 'Creator',
+          facebookTag: 'Social',
+          emailTag: 'Direct',
+          whatsappTag: 'Chat',
+        },
+        footer: {
+          createdBy: 'Created by Alex',
+          madeWith: 'Made with Creativity',
+        },
+        toast: {
+          copied: 'Copied:',
+          langSwitched: 'English',
+        },
+      },
+    };
+
+    /**
+     * 3. EXTENSIBLE PROJECT DATA SYSTEM (FIXED DATES & 3-LANGUAGE SUPPORT)
+     */
+    const PROJECTS_DATA = [
+      {
+        id: 'project-01',
+        number: '01',
+        title: 'Mini Game',
+        version: '',
+        publishedDate: '18/11/2026',
+        status: 'Live',
+        category: {
+          lo: 'ເກມ / ອິນເຕີແອັກທີບ',
+          th: 'เกม / อินเทอร์แอคทีฟ',
+          en: 'Game / Interactive',
+        },
+        description: {
+          lo: 'ໂປຣເຈັກມິນິເກມແບບໂຕ້ຕອບທີ່ມ່ວນຊື່ນ ສ້າງໂດຍ Alex.',
+          th: 'โปรเจกต์มินิเกมแบบโต้ตอบที่สนุกสนาน สร้างสรรค์โดย Alex',
+          en: 'A fun interactive mini game project created by Alex.',
+        },
+        url: 'https://laosgsos12-ops.github.io/mini-game-/',
+        buttonText: {
+          lo: 'ເຂົ້າຊົມຜົນງານ',
+          th: 'เข้าชมผลงาน',
+          en: 'Visit Project',
+        },
+        coverTheme: 'game',
+        coverImage: '',
+      },
+      {
+        id: 'project-02',
+        number: '02',
+        title: 'Lao O-Gae Translator',
+        version: '',
+        publishedDate: '18/11/2026',
+        status: 'Live',
+        category: {
+          lo: 'ພາສາ / ແປພາສາ',
+          th: 'ภาษา / แปลภาษา',
+          en: 'Language / Translator',
+        },
+        description: {
+          lo: 'ໂປຣເຈັກແປພາສາເພື່ອສຳຫຼວດ ແລະ ຮຽນຮູ້ພາສາລາວ ແລະ ພາສາ O-Gae.',
+          th: 'โปรเจกต์แปลภาษาเพื่อสำรวจและเรียนรู้ภาษาลาวและภาษา O-Gae',
+          en: 'A language translation project for exploring Lao and O-Gae language.',
+        },
+        url: 'https://laosgsos12-ops.github.io/Laosoke/',
+        buttonText: {
+          lo: 'ເຂົ້າຊົມຜົນງານ',
+          th: 'เข้าชมผลงาน',
+          en: 'Visit Project',
+        },
+        coverTheme: 'translator',
+        coverImage: '',
+      },
+      {
+        id: 'project-03',
+        number: '03',
+        title: 'Mini World Relax V2.2Beta',
+        version: 'V2.2Beta',
+        publishedDate: '21/11/2026',
+        status: 'Live',
+        category: {
+          lo: 'ເກມ / ອິນເຕີແອັກທີບ',
+          th: 'เกม / อินเทอร์แอคทีฟ',
+          en: 'Game / Interactive',
+        },
+        description: {
+          lo: 'ເກມມິນິເວີລແບບຜ່ອນຄາຍ ແລະ ໂຕ້ຕອບໄດ້ ສ້າງໂດຍ Alex.',
+          th: 'เกมมินิเวิลด์แนวผ่อนคลายและโต้ตอบได้ สร้างสรรค์โดย Alex',
+          en: 'A relaxing and interactive mini world game created by Alex.',
+        },
+        url: 'https://laosgsos12-ops.github.io/GamePaJonphai/',
+        buttonText: {
+          lo: 'ເຂົ້າຊົມຜົນງານ',
+          th: 'เข้าชมผลงาน',
+          en: 'Visit Project',
+        },
+        coverTheme: 'mini-world-relax',
+        coverImage: '',
+      },
+    ];
+
+    // Global App State
+    let currentLang = 'lo';
+    let currentActiveSection = 'home';
+    let toastTimer = null;
+    let capsuleRafId = null;
+    let activeModalProject = null;
+
+    function getInitialLanguage() {
+      try {
+        const saved = localStorage.getItem('creator_bio_lang');
+        if (saved === 'lo' || saved === 'th' || saved === 'en') {
+          return saved;
+        }
+      } catch (e) {
+        // Fallback to Lao default
+      }
+      return 'lo';
+    }
+
+    function showToast(message) {
+      const toastBanner = document.getElementById('toastBanner');
+      const toastMessage = document.getElementById('toastMessage');
+      if (!toastBanner || !toastMessage) return;
+
+      toastMessage.textContent = message;
+      toastBanner.classList.remove('opacity-0', '-translate-y-3');
+      toastBanner.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toastBanner.classList.remove('opacity-100', 'translate-y-0');
+        toastBanner.classList.add('opacity-0', '-translate-y-3');
+      }, 1800);
+    }
+
+    /**
+     * 4. CUSTOM SVG COVER ART GENERATOR FOR PROJECT CARDS
+     */
+    function getProjectCoverMarkup(project) {
+      if (project.coverImage && project.coverImage.trim() !== '') {
+        return `
+          <img
+            src="${project.coverImage}"
+            alt="${project.title} Preview"
+            loading="lazy"
+            decoding="async"
+            class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+          />
+          <div style="display:none;" class="w-full h-full">${getDefaultProjectSvg(project.coverTheme)}</div>
+        `;
+      }
+      return getDefaultProjectSvg(project.coverTheme);
+    }
+
+    function getDefaultProjectSvg(theme) {
+      if (theme === 'mini-world-relax') {
+        return `
+          <svg class="w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" viewBox="0 0 640 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mini World Relax V2.2Beta Cover">
+            <defs>
+              <linearGradient id="mwrSkyBg" x1="0" y1="0" x2="640" y2="340" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0B192E" />
+                <stop offset="48%" stop-color="#1B3B6F" />
+                <stop offset="82%" stop-color="#2E6F7E" />
+                <stop offset="100%" stop-color="#4B9B8E" />
+              </linearGradient>
+              <radialGradient id="mwrSunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(475 96) rotate(90) scale(165)">
+                <stop stop-color="#FDE68A" stop-opacity="0.72" />
+                <stop offset="0.45" stop-color="#FDBA74" stop-opacity="0.28" />
+                <stop offset="1" stop-color="#FDBA74" stop-opacity="0" />
+              </radialGradient>
+              <radialGradient id="mwrIslandAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(320 215) rotate(90) scale(170 250)">
+                <stop stop-color="#34D399" stop-opacity="0.28" />
+                <stop offset="1" stop-color="#34D399" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="mwrGrassTop" x1="170" y1="150" x2="470" y2="235" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#34D399" />
+                <stop offset="50%" stop-color="#10B981" />
+                <stop offset="100%" stop-color="#059669" />
+              </linearGradient>
+              <linearGradient id="mwrEarthBase" x1="200" y1="195" x2="440" y2="310" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#92400E" />
+                <stop offset="55%" stop-color="#78350F" />
+                <stop offset="100%" stop-color="#3B2F4A" />
+              </linearGradient>
+              <linearGradient id="mwrWaterStream" x1="270" y1="168" x2="365" y2="232" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#7DD3FC" />
+                <stop offset="100%" stop-color="#38BDF8" />
+              </linearGradient>
+            </defs>
+
+            <rect width="640" height="340" fill="url(#mwrSkyBg)" />
+            <rect width="640" height="340" fill="url(#mwrSunGlow)" />
+            <rect width="640" height="340" fill="url(#mwrIslandAura)" />
+
+            <g fill="#FEF9C3" opacity="0.75">
+              <circle cx="92" cy="68" r="1.8" />
+              <circle cx="148" cy="48" r="1.4" />
+              <circle cx="235" cy="64" r="2" />
+              <circle cx="332" cy="44" r="1.5" />
+              <circle cx="556" cy="58" r="1.8" />
+              <circle cx="585" cy="112" r="1.4" />
+            </g>
+
+            <circle cx="475" cy="96" r="30" fill="#FEF3C7" fill-opacity="0.92" />
+            <circle cx="475" cy="96" r="42" stroke="#FDE68A" stroke-opacity="0.35" stroke-width="2" />
+
+            <g fill="#FFFFFF" fill-opacity="0.16">
+              <rect x="78" y="96" width="96" height="22" rx="11" />
+              <rect x="102" y="86" width="52" height="18" rx="9" />
+              <rect x="498" y="138" width="88" height="20" rx="10" />
+              <rect x="518" y="129" width="46" height="16" rx="8" />
+            </g>
+
+            <path d="M0 245 Q130 185 270 232 T540 218 L640 232 L640 340 L0 340 Z" fill="#0F2942" fill-opacity="0.55" />
+            <path d="M0 268 Q180 215 350 258 T640 244 L640 340 L0 340 Z" fill="#134E4A" fill-opacity="0.45" />
+
+            <polygon points="184,198 320,256 456,198 418,274 320,314 222,274" fill="url(#mwrEarthBase)" />
+            <polygon points="320,256 456,198 418,274 320,314" fill="#1E1B4B" fill-opacity="0.28" />
+
+            <ellipse cx="320" cy="194" rx="142" ry="52" fill="url(#mwrGrassTop)" />
+            <ellipse cx="320" cy="190" rx="134" ry="44" fill="#6EE7B7" fill-opacity="0.28" />
+
+            <path d="M292 152 C308 168 282 186 306 204 C324 218 316 232 320 246" stroke="url(#mwrWaterStream)" stroke-width="18" stroke-linecap="round" />
+            <path d="M320 244 L320 306" stroke="#7DD3FC" stroke-opacity="0.7" stroke-width="8" stroke-linecap="round" stroke-dasharray="10 6" />
+
+            <g transform="translate(232, 146)">
+              <rect x="6" y="18" width="38" height="26" rx="4" fill="#FEF3C7" />
+              <polygon points="0,20 25,2 50,20" fill="#F97316" />
+              <polygon points="25,2 50,20 44,20 25,6" fill="#EA580C" />
+              <rect x="14" y="25" width="10" height="10" rx="2" fill="#FBBF24" />
+              <rect x="29" y="27" width="8" height="17" rx="2" fill="#92400E" />
+            </g>
+
+            <g transform="translate(376, 134)">
+              <rect x="16" y="26" width="6" height="24" rx="3" fill="#78350F" />
+              <circle cx="19" cy="20" r="18" fill="#F472B6" />
+              <circle cx="9" cy="24" r="12" fill="#F9A8D4" />
+              <circle cx="29" cy="23" r="13" fill="#EC4899" />
+            </g>
+
+            <g transform="translate(198, 152)">
+              <rect x="11" y="22" width="5" height="16" rx="2.5" fill="#78350F" />
+              <polygon points="13.5,2 2,24 25,24" fill="#047857" />
+              <polygon points="13.5,8 4,26 23,26" fill="#10B981" />
+            </g>
+            <g transform="translate(342, 132)">
+              <rect x="9" y="18" width="4" height="14" rx="2" fill="#78350F" />
+              <circle cx="11" cy="14" r="12" fill="#34D399" />
+            </g>
+
+            <g fill="#FDE047">
+              <circle cx="212" cy="136" r="2.5" opacity="0.9" />
+              <circle cx="286" cy="126" r="2" opacity="0.75" />
+              <circle cx="424" cy="146" r="2.5" opacity="0.85" />
+              <circle cx="164" cy="212" r="2" opacity="0.65" />
+              <circle cx="468" cy="218" r="2.2" opacity="0.75" />
+            </g>
+          </svg>
+        `;
+      }
+
+      if (theme === 'game') {
+        return `
+          <svg class="w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" viewBox="0 0 640 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mini Game Interactive Cover">
+            <defs>
+              <linearGradient id="gameCoverBg" x1="0" y1="0" x2="640" y2="340" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0F172A" />
+                <stop offset="50%" stop-color="#1E1B4B" />
+                <stop offset="100%" stop-color="#312E81" />
+              </linearGradient>
+              <radialGradient id="gameOrb1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(150 90) rotate(45) scale(210)">
+                <stop stop-color="#38BDF8" stop-opacity="0.45" />
+                <stop offset="1" stop-color="#38BDF8" stop-opacity="0" />
+              </radialGradient>
+              <radialGradient id="gameOrb2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(500 250) rotate(45) scale(230)">
+                <stop stop-color="#C084FC" stop-opacity="0.45" />
+                <stop offset="1" stop-color="#C084FC" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="padGlass" x1="200" y1="95" x2="440" y2="245" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22" />
+                <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.06" />
+              </linearGradient>
+            </defs>
+            <rect width="640" height="340" fill="url(#gameCoverBg)" />
+            <rect width="640" height="340" fill="url(#gameOrb1)" />
+            <rect width="640" height="340" fill="url(#gameOrb2)" />
+            <g opacity="0.16" stroke="#93C5FD" stroke-width="1">
+              <line x1="0" y1="85" x2="640" y2="85" />
+              <line x1="0" y1="170" x2="640" y2="170" />
+              <line x1="0" y1="255" x2="640" y2="255" />
+              <line x1="160" y1="0" x2="160" y2="340" />
+              <line x1="320" y1="0" x2="320" y2="340" />
+              <line x1="480" y1="0" x2="480" y2="340" />
+            </g>
+            <circle cx="122" cy="112" r="18" fill="#38BDF8" fill-opacity="0.2" stroke="#38BDF8" stroke-width="2" />
+            <polygon points="520,84 538,116 502,116" fill="#F472B6" fill-opacity="0.22" stroke="#F472B6" stroke-width="2" />
+            <rect x="492" y="216" width="28" height="28" rx="7" transform="rotate(15 492 216)" fill="#A78BFA" fill-opacity="0.22" stroke="#A78BFA" stroke-width="2" />
+            <rect x="195" y="102" width="250" height="136" rx="54" fill="url(#padGlass)" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="2" />
+            <rect x="242" y="158" width="44" height="14" rx="5" fill="#F8FAFC" fill-opacity="0.9" />
+            <rect x="257" y="143" width="14" height="44" rx="5" fill="#F8FAFC" fill-opacity="0.9" />
+            <circle cx="384" cy="150" r="9" fill="#38BDF8" />
+            <circle cx="404" cy="168" r="9" fill="#F472B6" />
+            <circle cx="364" cy="168" r="9" fill="#A78BFA" />
+            <circle cx="384" cy="186" r="9" fill="#34D399" />
+            <rect x="303" y="162" width="34" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.55" />
+          </svg>
+        `;
+      }
+
+      return `
+        <svg class="w-full h-full transition-transform duration-300 group-hover:scale-[1.03]" viewBox="0 0 640 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lao O-Gae Translator Cover">
+          <defs>
+            <linearGradient id="langCoverBg" x1="0" y1="0" x2="640" y2="340" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#06283D" />
+              <stop offset="50%" stop-color="#0F3D5E" />
+              <stop offset="100%" stop-color="#134E4A" />
+            </linearGradient>
+            <radialGradient id="langOrb1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(180 240) rotate(30) scale(230)">
+              <stop stop-color="#2DD4BF" stop-opacity="0.42" />
+              <stop offset="1" stop-color="#2DD4BF" stop-opacity="0" />
+            </radialGradient>
+            <radialGradient id="langOrb2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(480 95) rotate(30) scale(220)">
+              <stop stop-color="#38BDF8" stop-opacity="0.4" />
+              <stop offset="1" stop-color="#38BDF8" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+          <rect width="640" height="340" fill="url(#langCoverBg)" />
+          <rect width="640" height="340" fill="url(#langOrb1)" />
+          <rect width="640" height="340" fill="url(#langOrb2)" />
+          <path d="M40 245C130 195 210 285 320 235C430 185 510 265 600 215" stroke="#5EEAD4" stroke-opacity="0.28" stroke-width="2.5" stroke-linecap="round" />
+          <path d="M40 262C130 212 210 302 320 252C430 202 510 282 600 232" stroke="#38BDF8" stroke-opacity="0.2" stroke-width="2" stroke-linecap="round" />
+          <rect x="130" y="92" width="165" height="136" rx="26" fill="#FFFFFF" fill-opacity="0.14" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="1.8" />
+          <rect x="152" y="114" width="54" height="22" rx="11" fill="#2DD4BF" fill-opacity="0.25" />
+          <text x="179" y="129" text-anchor="middle" fill="#99F6E4" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1">LAO</text>
+          <text x="212" y="182" text-anchor="middle" fill="#F8FAFC" font-family="Plus Jakarta Sans, Noto Sans Lao, sans-serif" font-size="34" font-weight="800">ລາວ</text>
+          <circle cx="320" cy="160" r="24" fill="#0F172A" fill-opacity="0.72" stroke="#5EEAD4" stroke-opacity="0.7" stroke-width="2" />
+          <path d="M311 155h18l-4-4M329 165h-18l4 4" stroke="#5EEAD4" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          <rect x="345" y="92" width="165" height="136" rx="26" fill="#FFFFFF" fill-opacity="0.14" stroke="#FFFFFF" stroke-opacity="0.38" stroke-width="1.8" />
+          <rect x="367" y="114" width="66" height="22" rx="11" fill="#38BDF8" fill-opacity="0.25" />
+          <text x="400" y="129" text-anchor="middle" fill="#BAE6FD" font-family="Inter, sans-serif" font-size="11" font-weight="700" letter-spacing="1">O-GAE</text>
+          <text x="427" y="180" text-anchor="middle" fill="#F8FAFC" font-family="Plus Jakarta Sans, Inter, sans-serif" font-size="26" font-weight="800">O-Gae</text>
+        </svg>
+      `;
+    }
+
+    /**
+     * 5. ZERO-REFLOW POINTER SPECULAR TRACKING (DESKTOP POINTER ONLY)
+     */
+    const supportsHoverPointer =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    function bindSpecularHover(el) {
+      if (!supportsHoverPointer || !el || el.dataset.specularBound === 'true') return;
+      el.dataset.specularBound = 'true';
+
+      let cachedRect = null;
+      let pendingX = 0;
+      let pendingY = 0;
+      let tickScheduled = false;
+
+      el.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        cachedRect = el.getBoundingClientRect();
+      }, { passive: true });
+
+      el.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        if (!cachedRect) cachedRect = el.getBoundingClientRect();
+        pendingX = e.clientX - cachedRect.left;
+        pendingY = e.clientY - cachedRect.top;
+
+        if (!tickScheduled) {
+          tickScheduled = true;
+          requestAnimationFrame(() => {
+            el.style.setProperty('--mouse-x', `${pendingX}px`);
+            el.style.setProperty('--mouse-y', `${pendingY}px`);
+            tickScheduled = false;
+          });
+        }
+      }, { passive: true });
+
+      el.addEventListener('pointerleave', () => {
+        cachedRect = null;
+      }, { passive: true });
+    }
+
+    /**
+     * 6. PROJECT PREVIEW MODAL ENGINE (CENTER SCALE + FADE + SPRING)
+     */
+    function openProjectModal(projectId) {
+      const project = PROJECTS_DATA.find((p) => p.id === projectId);
+      const modal = document.getElementById('projectModal');
+      if (!project || !modal) return;
+
+      activeModalProject = project;
+      const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.lo;
+      const categoryText = project.category[currentLang] || project.category.lo;
+      const descText = project.description[currentLang] || project.description.lo;
+      const btnText = project.buttonText[currentLang] || project.buttonText.lo;
+
+      const coverBox = document.getElementById('modalCoverContainer');
+      const catBadge = document.getElementById('modalCategoryBadge');
+      const verBadge = document.getElementById('modalVersionBadge');
+      const titleEl = document.getElementById('modalProjectTitle');
+      const dateLabel = document.getElementById('modalDateLabel');
+      const dateVal = document.getElementById('modalDateValue');
+      const descEl = document.getElementById('modalProjectDesc');
+      const launchLink = document.getElementById('modalLaunchLink');
+      const launchText = document.getElementById('modalLaunchText');
+
+      if (coverBox) coverBox.innerHTML = getProjectCoverMarkup(project);
+      if (catBadge) catBadge.textContent = categoryText;
+      if (verBadge) {
+        if (project.version) {
+          verBadge.textContent = project.version;
+          verBadge.classList.remove('hidden');
+        } else {
+          verBadge.classList.add('hidden');
+        }
+      }
+      if (titleEl) titleEl.textContent = project.title;
+      if (dateLabel) dateLabel.textContent = `${dict.projects.publishedDate}:`;
+      if (dateVal) dateVal.textContent = project.publishedDate;
+      if (descEl) descEl.textContent = `"${descText}"`;
+      if (launchLink) launchLink.href = project.url;
+      if (launchText) launchText.textContent = btnText;
+
+      modal.setAttribute('aria-hidden', 'false');
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      const modal = document.getElementById('projectModal');
+      if (!modal || !modal.classList.contains('is-open')) return;
+
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      activeModalProject = null;
+    }
+
+    function initProjectModal() {
+      const modal = document.getElementById('projectModal');
+      const closeBtn = document.getElementById('closeModalBtn');
+      if (!modal) return;
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', closeProjectModal);
+      }
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeProjectModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeProjectModal();
+        }
+      });
+    }
+
+    /**
+     * 7. RENDER PROJECTS INTO THE DOM (SIDE-TO-CENTER SCROLL-SCRUBBED CARDS)
+     */
+    function renderProjects() {
+      const grid = document.getElementById('projectsGrid');
+      if (!grid) return;
+
+      const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.lo;
+
+      grid.innerHTML = PROJECTS_DATA.map((project, index) => {
+        const categoryText = project.category[currentLang] || project.category.lo;
+        const descText = project.description[currentLang] || project.description.lo;
+        const btnText = project.buttonText[currentLang] || project.buttonText.lo;
+        const sideDir = index % 2 === 0 ? 'left' : 'right';
+
+        const versionPillHtml = project.version
+          ? `<span class="px-2.5 py-1 rounded-full text-[11px] font-bold backdrop-blur-md bg-sky-500/35 text-white border border-sky-200/40 shadow-sm">${project.version}</span>`
+          : '';
+
+        return `
+          <article
+            data-assemble="${sideDir}"
+            data-offset="52"
+            class="scroll-assemble glass-interactive liquid-glass rounded-[30px] flex flex-col justify-between group"
+            data-project-url="${project.url}"
+            role="link"
+            tabindex="0"
+            aria-label="${project.title} – ${categoryText}"
+          >
+            <div>
+              <!-- Project Cover Banner -->
+              <div class="relative aspect-[16/9] w-full overflow-hidden rounded-t-[29px] border-b border-slate-900/[0.06] dark:border-white/[0.08]">
+                ${getProjectCoverMarkup(project)}
+
+                <!-- Floating Glass Category, Version, Status & Number Badges -->
+                <div class="absolute top-3.5 left-3.5 right-3.5 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md bg-slate-950/55 text-white border border-white/20 shadow-sm">
+                    ${categoryText}
+                  </span>
+                  <div class="flex items-center gap-1.5">
+                    ${versionPillHtml}
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold backdrop-blur-md bg-emerald-950/60 text-emerald-200 border border-emerald-400/35 shadow-sm">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 status-live-dot"></span>
+                      <span>${project.status}</span>
+                    </span>
+                    <span class="px-2.5 py-1 rounded-full text-[11px] font-bold backdrop-blur-md bg-white/20 text-white border border-white/25">
+                      #${project.number}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Title, Published Date & Description -->
+              <div class="p-6 sm:p-7 pb-4 space-y-3">
+                <div class="space-y-2">
+                  <h3 class="font-display font-extrabold text-2xl tracking-tight text-[var(--text-primary)] group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors duration-200">
+                    ${project.title}
+                  </h3>
+
+                  <!-- Published Date Badge with Calendar Icon -->
+                  <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-slate-900/[0.045] dark:bg-white/[0.065] text-[var(--text-secondary)] border border-slate-900/[0.07] dark:border-white/[0.09]">
+                    <svg class="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>${dict.projects.publishedDate}:</span>
+                    <time class="font-semibold text-[var(--text-primary)]">${project.publishedDate}</time>
+                  </div>
+                </div>
+
+                <p class="text-sm sm:text-base text-[var(--text-secondary)] leading-relaxed">
+                  "${descText}"
+                </p>
+              </div>
+            </div>
+
+            <!-- Action Footer -->
+            <div class="px-6 sm:px-7 pb-6 sm:pb-7 pt-2 flex items-center justify-between gap-3">
+              <a
+                href="${project.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-spring btn-primary-gradient ripple-trigger flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold min-h-[44px]"
+                onclick="event.stopPropagation();"
+              >
+                <span>${btnText}</span>
+                <svg class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M7 17 17 7"></path>
+                  <path d="M7 7h10v10"></path>
+                </svg>
+              </a>
+
+              <div class="flex items-center gap-2">
+                <span class="hidden lg:inline-flex items-center text-xs font-medium text-[var(--text-muted)]">
+                  ${dict.projects.liveApp}
+                </span>
+                <button
+                  type="button"
+                  data-preview-id="${project.id}"
+                  aria-label="${dict.projects.previewDetails} – ${project.title}"
+                  title="${dict.projects.previewDetails}"
+                  class="btn-spring ripple-trigger ripple-wave-dark w-11 h-11 rounded-full inline-flex items-center justify-center bg-slate-900/[0.05] dark:bg-white/[0.08] hover:bg-slate-900/[0.11] dark:hover:bg-white/[0.15] border border-slate-900/[0.08] dark:border-white/[0.12] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                >
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 16v-4"></path>
+                    <path d="M12 8h.01"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('[data-project-url]').forEach((card) => {
+        const targetUrl = card.getAttribute('data-project-url');
+        card.addEventListener('click', () => {
+          window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        });
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            window.open(targetUrl, '_blank', 'noopener,noreferrer');
+          }
+        });
+        bindSpecularHover(card);
+      });
+
+      grid.querySelectorAll('[data-preview-id]').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openProjectModal(btn.getAttribute('data-preview-id'));
+        });
+      });
+
+      bindRipples(grid);
+
+      if (window.ScrollAssemblyEngine) {
+        window.ScrollAssemblyEngine.refresh();
+      }
+    }
+
+    /**
+     * 8. APPLY LANGUAGE TRANSLATIONS ACROSS ENTIRE PAGE
+     */
+    function applyLanguage(lang, announce = false) {
+      if (!TRANSLATIONS[lang]) lang = 'lo';
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      try {
+        localStorage.setItem('creator_bio_lang', lang);
+      } catch (e) {
+        // Ignore storage errors
+      }
+
+      document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+        if (btn.getAttribute('data-lang-btn') === lang) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const dict = TRANSLATIONS[lang];
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const path = el.getAttribute('data-i18n').split('.');
+        let value = dict;
+        for (const key of path) {
+          if (value && typeof value === 'object') {
+            value = value[key];
+          }
+        }
+        if (typeof value === 'string') {
+          el.textContent = value;
+        }
+      });
+
+      renderProjects();
+
+      if (activeModalProject) {
+        openProjectModal(activeModalProject.id);
+      }
+
+      updateSlidingCapsules(currentActiveSection);
+
+      if (announce && dict.toast && dict.toast.langSwitched) {
+        showToast(dict.toast.langSwitched);
+      }
+    }
+
+    function initLanguageSystem() {
+      currentLang = getInitialLanguage();
+      document.querySelectorAll('[data-lang-btn]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const selectedLang = btn.getAttribute('data-lang-btn');
+          if (selectedLang && selectedLang !== currentLang) {
+            applyLanguage(selectedLang, true);
+          }
+        });
+      });
+
+      applyLanguage(currentLang, false);
+    }
+
+    /**
+     * 9. BATCHED 120HZ SLIDING CAPSULE PILL POSITIONER (ZERO FORCED REFLOWS)
+     */
+    function updateSlidingCapsules(targetId) {
+      if (capsuleRafId !== null) {
+        cancelAnimationFrame(capsuleRafId);
+      }
+
+      capsuleRafId = requestAnimationFrame(() => {
+        capsuleRafId = null;
+
+        const mobileTrack = document.getElementById('mobileNavTrack');
+        const mobilePill = document.getElementById('mobileCapsulePill');
+        const desktopTrack = document.getElementById('desktopNavTrack');
+        const desktopPill = document.getElementById('desktopCapsulePill');
+
+        // Phase 1: Batch DOM Geometry Reads
+        let mobileMetrics = null;
+        if (mobileTrack && mobilePill) {
+          const activeMobileItem = mobileTrack.querySelector(`[data-nav-target="${targetId}"]`);
+          if (activeMobileItem && activeMobileItem.offsetWidth > 0) {
+            mobileMetrics = {
+              width: activeMobileItem.offsetWidth,
+              left: activeMobileItem.offsetLeft,
+            };
+          }
+        }
+
+        let desktopMetrics = null;
+        if (desktopTrack && desktopPill) {
+          const activeDesktopItem = desktopTrack.querySelector(`[data-nav-target="${targetId}"]`);
+          if (activeDesktopItem && activeDesktopItem.offsetWidth > 0) {
+            desktopMetrics = {
+              width: activeDesktopItem.offsetWidth,
+              left: activeDesktopItem.offsetLeft,
+            };
+          }
+        }
+
+        // Phase 2: Batch GPU Transform Writes
+        if (mobileMetrics && mobilePill) {
+          mobilePill.style.width = `${mobileMetrics.width}px`;
+          mobilePill.style.transform = `translate3d(${mobileMetrics.left}px, 0, 0)`;
+          mobilePill.style.opacity = '1';
+        }
+
+        if (desktopMetrics && desktopPill) {
+          desktopPill.style.width = `${desktopMetrics.width}px`;
+          desktopPill.style.transform = `translate3d(${desktopMetrics.left}px, 0, 0)`;
+          desktopPill.style.opacity = '1';
+        }
+      });
+    }
+
+    /**
+     * 10. DARK / LIGHT MODE THEME ENGINE
+     */
+    function initThemeSystem() {
+      const toggleBtn = document.getElementById('themeToggleBtn');
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      }
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+          const isCurrentlyDark = document.documentElement.classList.contains('dark');
+          const nextTheme = isCurrentlyDark ? 'light' : 'dark';
+          applyTheme(nextTheme);
+          try {
+            localStorage.setItem('creator_bio_theme', nextTheme);
+          } catch (e) {
+            // Ignore storage restrictions
+          }
+        });
+      }
+
+      const handleSystemChange = (event) => {
+        try {
+          const saved = localStorage.getItem('creator_bio_theme');
+          if (!saved) {
+            applyTheme(event.matches ? 'dark' : 'light');
+          }
+        } catch (e) {
+          applyTheme(event.matches ? 'dark' : 'light');
+        }
+      };
+
+      if (typeof mediaQuery.addEventListener === 'function') {
+        mediaQuery.addEventListener('change', handleSystemChange);
+      } else if (typeof mediaQuery.addListener === 'function') {
+        mediaQuery.addListener(handleSystemChange);
+      }
+    }
+
+    /**
+     * 11. NAVIGATION & ACTIVE SECTION SCROLL SPY WITH SMOOTH 3D CAPSULE GLIDE
+     */
+    function initNavigation() {
+      const navLinks = document.querySelectorAll('[data-nav-target]');
+      const sections = ['home', 'projects', 'about', 'contact']
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      let isManualScrollLocked = false;
+      let manualScrollTimer = null;
+
+      function setActiveNav(targetId) {
+        if (currentActiveSection === targetId && !isManualScrollLocked) {
+          updateSlidingCapsules(targetId);
+          return;
+        }
+        currentActiveSection = targetId;
+        navLinks.forEach((link) => {
+          if (link.getAttribute('data-nav-target') === targetId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+        updateSlidingCapsules(targetId);
+      }
+
+      navLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const targetId = link.getAttribute('data-nav-target');
+          const section = document.getElementById(targetId);
+          if (section) {
+            e.preventDefault();
+            isManualScrollLocked = true;
+            clearTimeout(manualScrollTimer);
+            setActiveNav(targetId);
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            manualScrollTimer = setTimeout(() => {
+              isManualScrollLocked = false;
+            }, 680);
+          }
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const navObserver = new IntersectionObserver(
+          (entries) => {
+            if (isManualScrollLocked) return;
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActiveNav(entry.target.id);
+              }
+            });
+          },
+          {
+            rootMargin: '-32% 0px -52% 0px',
+            threshold: 0,
+          }
+        );
+
+        sections.forEach((sec) => navObserver.observe(sec));
+      }
+
+      let scrollTicking = false;
+      window.addEventListener(
+        'scroll',
+        () => {
+          if (isManualScrollLocked || scrollTicking) return;
+          scrollTicking = true;
+          requestAnimationFrame(() => {
+            const nearBottom =
+              window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 28;
+            if (nearBottom && currentActiveSection !== 'contact') {
+              setActiveNav('contact');
+            }
+            scrollTicking = false;
+          });
+        },
+        { passive: true }
+      );
+
+      window.addEventListener(
+        'resize',
+        () => {
+          updateSlidingCapsules(currentActiveSection);
+        },
+        { passive: true }
+      );
+
+      if ('ResizeObserver' in window) {
+        const resizeObserver = new ResizeObserver(() => {
+          updateSlidingCapsules(currentActiveSection);
+        });
+        const mobileTrack = document.getElementById('mobileNavTrack');
+        const desktopTrack = document.getElementById('desktopNavTrack');
+        if (mobileTrack) resizeObserver.observe(mobileTrack);
+        if (desktopTrack) resizeObserver.observe(desktopTrack);
+      }
+
+      updateSlidingCapsules(currentActiveSection);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => updateSlidingCapsules(currentActiveSection));
+      }
+    }
+
+    /**
+     * 12. 120HZ SCROLL-LINKED REVERSIBLE ASSEMBLY ENGINE
+     * - Zero Forced Reflows: Caches document Y offsets in a single batched pass
+     * - Frame-Rate Independent Damped Spring: Silky smooth on 60Hz, 90Hz, 120Hz
+     * - Reversible Choreography:
+     *   * Top Nav & Mobile Dock: Separated Left/Right islands at top -> gradually
+     *     glide inward and fuse together on scroll -> separate back on scroll up!
+     *   * Hero Elements: Curtain-split Left/Right as you scroll down -> re-assemble
+     *     in center as you scroll back up!
+     *   * Projects, About, Skills, Contact & Footer: Glide from Left & Right to
+     *     assemble in center as you scroll down -> separate back to Left & Right
+     *     when you scroll up so you can play with them endlessly!
+     */
+    function initScrollAssemblyEngine() {
+      const reducedMotion =
+        typeof window.matchMedia === 'function' &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reducedMotion) return;
+
+      const topNavUnifiedBg = document.getElementById('topNavUnifiedBg');
+      const navLeftGroup = document.getElementById('navLeftGroup');
+      const navCenterGroup = document.getElementById('navCenterGroup');
+      const navRightGroup = document.getElementById('navRightGroup');
+      const mobileDockShell = document.getElementById('mobileDockShell');
+      const mobileDockLinks = Array.from(document.querySelectorAll('.mobile-dock-link'));
+
+      let heroParts = [];
+      let assembleItems = [];
+      let viewportHeight = window.innerHeight || 800;
+      let viewportWidth = window.innerWidth || 1024;
+      let docHeight = document.documentElement.scrollHeight || 2000;
+
+      // Smoothed Spring State
+      let targetScrollY = window.scrollY || 0;
+      let smoothScrollY = targetScrollY;
+      let navMergeCurrent = Math.min(1, Math.max(0, targetScrollY / 130));
+      let rafId = null;
+      let lastTimestamp = 0;
+
+      const clamp = (val, min, max) => (val < min ? min : val > max ? max : val);
+      const easeOutQuint = (t) => 1 - Math.pow(1 - t, 5);
+      const easeInOutCubic = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+      function measureLayoutGeometry() {
+        viewportHeight = window.innerHeight || 800;
+        viewportWidth = window.innerWidth || 1024;
+        docHeight = document.documentElement.scrollHeight || 2000;
+        const currentScroll = window.scrollY || 0;
+
+        // Collect all hero parts
+        heroParts = Array.from(document.querySelectorAll('[data-hero-part]')).map((el) => ({
+          el,
+          part: el.getAttribute('data-hero-part') || 'center',
+          weight: parseFloat(el.getAttribute('data-weight') || '1'),
+          currentSplit: -1,
+        }));
+
+        // Collect all scroll-scrubbed assemble items and measure their natural document Y
+        const rawItems = Array.from(document.querySelectorAll('[data-assemble]'));
+        assembleItems = rawItems.map((el) => {
+          const rect = el.getBoundingClientRect();
+          return {
+            el,
+            dir: el.getAttribute('data-assemble') || 'left',
+            offset: parseFloat(el.getAttribute('data-offset') || '42'),
+            docTop: rect.top + currentScroll,
+            currentProgress: -1,
+          };
+        });
+
+        scheduleTick();
+      }
+
+      function applyFrame(dtSeconds) {
+        // Frame-rate independent exponential smoothing (silky on 60Hz, 90Hz, 120Hz)
+        const scrollLerp = 1 - Math.exp(-15 * dtSeconds);
+        const navLerp = 1 - Math.exp(-12 * dtSeconds);
+
+        const scrollDiff = targetScrollY - smoothScrollY;
+        if (Math.abs(scrollDiff) < 0.08) {
+          smoothScrollY = targetScrollY;
+        } else {
+          smoothScrollY += scrollDiff * scrollLerp;
+        }
+
+        // 1. TOP NAVIGATION BAR: Left / Center / Right Modular Assembly
+        const targetNavMerge = clamp(smoothScrollY / 135, 0, 1);
+        const navDiff = targetNavMerge - navMergeCurrent;
+        if (Math.abs(navDiff) < 0.0008) {
+          navMergeCurrent = targetNavMerge;
+        } else {
+          navMergeCurrent += navDiff * navLerp;
+        }
+
+        const m = easeInOutCubic(navMergeCurrent);
+        const inv = 1 - m;
+        const isMobile = viewportWidth < 768;
+        const sideSpread = isMobile ? 5 : 14;
+
+        if (topNavUnifiedBg) {
+          topNavUnifiedBg.style.opacity = (0.08 + m * 0.92).toFixed(3);
+          topNavUnifiedBg.style.transform = `scale3d(${(1.025 - m * 0.025).toFixed(4)}, ${(0.94 + m * 0.06).toFixed(4)}, 1)`;
+        }
+
+        if (navLeftGroup) {
+          const lx = (-sideSpread * inv).toFixed(2);
+          const lScale = (0.98 + m * 0.02).toFixed(4);
+          navLeftGroup.style.transform = `translate3d(${lx}px, 0, 0) scale3d(${lScale}, ${lScale}, 1)`;
+        }
+
+        if (navCenterGroup && !isMobile) {
+          const cy = (-3 * inv).toFixed(2);
+          const cScale = (0.965 + m * 0.035).toFixed(4);
+          navCenterGroup.style.transform = `translate3d(0, ${cy}px, 0) scale3d(${cScale}, ${cScale}, 1)`;
+        }
+
+        if (navRightGroup) {
+          const rx = (sideSpread * inv).toFixed(2);
+          const rScale = (0.98 + m * 0.02).toFixed(4);
+          navRightGroup.style.transform = `translate3d(${rx}px, 0, 0) scale3d(${rScale}, ${rScale}, 1)`;
+        }
+
+        // Mobile Bottom Dock: Fans outward slightly at top, pulls tightly together on scroll
+        if (mobileDockShell && isMobile) {
+          const dockScale = (0.985 + m * 0.015).toFixed(4);
+          mobileDockShell.style.transform = `translate3d(0, 0, 0) scale3d(${dockScale}, ${dockScale}, 1)`;
+
+          const slotOffsets = [-6, -2, 2, 6];
+          for (let i = 0; i < mobileDockLinks.length; i++) {
+            const link = mobileDockLinks[i];
+            const isActive = link.classList.contains('active');
+            const spreadX = (slotOffsets[i] || 0) * inv;
+            const activeY = isActive ? -1.5 : 0;
+            const activeScale = isActive ? 1.03 : 1;
+            link.style.transform = `translate3d(${spreadX.toFixed(2)}px, ${activeY}px, 0) scale3d(${activeScale}, ${activeScale}, 1)`;
+          }
+        }
+
+        // 2. HERO SECTION: Assembled at top (0), curtains split Left/Right as you scroll down, re-assemble when scrolling back up!
+        const heroRawSplit = clamp((smoothScrollY - 24) / 380, 0, 1);
+        const heroSplit = easeInOutCubic(heroRawSplit);
+        const heroMaxShift = isMobile ? 28 : 48;
+
+        for (let i = 0; i < heroParts.length; i++) {
+          const item = heroParts[i];
+          const targetSplit = heroSplit * item.weight;
+          if (Math.abs(targetSplit - item.currentSplit) < 0.0008) continue;
+          item.currentSplit = targetSplit;
+
+          const clampedSplit = clamp(targetSplit, 0, 1.25);
+          let tx = 0;
+          let ty = -10 * clampedSplit;
+          let rot = 0;
+
+          if (item.part === 'left') {
+            tx = -heroMaxShift * clampedSplit;
+            rot = -1.2 * clampedSplit;
+          } else if (item.part === 'right') {
+            tx = heroMaxShift * clampedSplit;
+            rot = 1.2 * clampedSplit;
+          } else {
+            ty = -14 * clampedSplit;
+          }
+
+          const sc = 1 - 0.035 * clampedSplit;
+          const op = clamp(1 - 0.58 * clampedSplit, 0.35, 1);
+
+          item.el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) scale3d(${sc.toFixed(4)}, ${sc.toFixed(4)}, 1) rotate(${rot.toFixed(2)}deg)`;
+          item.el.style.opacity = op.toFixed(3);
+        }
+
+        // 3. CONTENT SECTIONS (PROJECTS, ABOUT, SKILLS, CONTACT, FOOTER):
+        // Gradually glide from Left & Right to assemble in Center on scroll down,
+        // and separate back to Left & Right when scrolling up!
+        const startEnterY = viewportHeight * 0.96;
+        const endAssembleY = viewportHeight * 0.56;
+        const travelSpan = Math.max(120, startEnterY - endAssembleY);
+        const maxScrollY = Math.max(1, docHeight - viewportHeight);
+        const bottomProximity = clamp((smoothScrollY - (maxScrollY - 150)) / 150, 0, 1);
+        const sectionShiftScale = isMobile ? 0.72 : 1;
+
+        let anyItemMoving = false;
+
+        for (let i = 0; i < assembleItems.length; i++) {
+          const item = assembleItems[i];
+          const viewTop = item.docTop - smoothScrollY;
+          const rawProgress = clamp((startEnterY - viewTop) / travelSpan, 0, 1);
+          const blendedProgress = Math.max(rawProgress, bottomProximity);
+          const targetP = easeOutQuint(blendedProgress);
+
+          if (item.currentProgress < 0) {
+            item.currentProgress = targetP;
+          } else {
+            const pDiff = targetP - item.currentProgress;
+            if (Math.abs(pDiff) < 0.0008) {
+              item.currentProgress = targetP;
+            } else {
+              item.currentProgress += pDiff * (1 - Math.exp(-16 * dtSeconds));
+              anyItemMoving = true;
+            }
+          }
+
+          const p = item.currentProgress;
+          const remain = 1 - p;
+          const shift = item.offset * sectionShiftScale * remain;
+          const dirSign = item.dir === 'left' ? -1 : item.dir === 'right' ? 1 : 0;
+
+          const tx = dirSign * shift;
+          const ty = 14 * remain;
+          const rot = dirSign * 1.4 * remain;
+          const sc = 0.955 + 0.045 * p;
+          const op = 0.14 + 0.86 * p;
+
+          item.el.style.transform = `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) scale3d(${sc.toFixed(4)}, ${sc.toFixed(4)}, 1) rotate(${rot.toFixed(2)}deg)`;
+          item.el.style.opacity = op.toFixed(3);
+        }
+
+        const stillSettling =
+          Math.abs(targetScrollY - smoothScrollY) >= 0.08 ||
+          Math.abs(targetNavMerge - navMergeCurrent) >= 0.0008 ||
+          anyItemMoving;
+
+        return stillSettling;
+      }
+
+      function tick(timestamp) {
+        if (!lastTimestamp) lastTimestamp = timestamp;
+        const dtSeconds = Math.min(0.05, Math.max(0.004, (timestamp - lastTimestamp) / 1000));
+        lastTimestamp = timestamp;
+
+        const keepRunning = applyFrame(dtSeconds);
+        if (keepRunning && !document.hidden) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          rafId = null;
+          lastTimestamp = 0;
+        }
+      }
+
+      function scheduleTick() {
+        if (rafId === null && !document.hidden) {
+          lastTimestamp = 0;
+          rafId = requestAnimationFrame(tick);
+        }
+      }
+
+      window.addEventListener(
+        'scroll',
+        () => {
+          targetScrollY = window.scrollY || 0;
+          scheduleTick();
+        },
+        { passive: true }
+      );
+
+      let resizeTimer = null;
+      window.addEventListener(
+        'resize',
+        () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(measureLayoutGeometry, 90);
+        },
+        { passive: true }
+      );
+
+      if ('ResizeObserver' in window) {
+        const mainEl = document.querySelector('main');
+        if (mainEl) {
+          const bodyResizeObserver = new ResizeObserver(() => {
+            measureLayoutGeometry();
+          });
+          bodyResizeObserver.observe(mainEl);
+        }
+      }
+
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(measureLayoutGeometry);
+      }
+
+      // Expose refresh hook when dynamic project cards re-render
+      window.ScrollAssemblyEngine = {
+        refresh: measureLayoutGeometry,
+        wake: scheduleTick,
+      };
+
+      // Initial measurement and immediate zero-latency paint
+      measureLayoutGeometry();
+      applyFrame(0.016);
+    }
+
+    /**
+     * 13. LIQUID GLASS INTERACTIONS, GPU RIPPLES & SOC BATTERY GUARD
+     */
+    function bindRipples(root = document) {
+      root.querySelectorAll('.ripple-trigger').forEach((el) => {
+        if (el.dataset.rippleBound === 'true') return;
+        el.dataset.rippleBound = 'true';
+
+        el.addEventListener(
+          'pointerdown',
+          (e) => {
+            const rect = el.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const wave = document.createElement('span');
+            wave.className = 'ripple-wave';
+            if (el.classList.contains('ripple-wave-dark')) {
+              wave.classList.add('ripple-wave-dark');
+            }
+            wave.style.width = `${size}px`;
+            wave.style.height = `${size}px`;
+            wave.style.left = `${e.clientX - rect.left - size / 2}px`;
+            wave.style.top = `${e.clientY - rect.top - size / 2}px`;
+            el.appendChild(wave);
+            wave.addEventListener('animationend', () => wave.remove(), { once: true });
+            setTimeout(() => {
+              if (wave.parentNode) wave.remove();
+            }, 460);
+          },
+          { passive: true }
+        );
+      });
+    }
+
+    function initMotionAndInteractions() {
+      document.querySelectorAll('.glass-interactive').forEach((card) => {
+        bindSpecularHover(card);
+      });
+
+      bindRipples(document);
+
+      // Pause background ambient loops when tab/app is hidden
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          document.documentElement.classList.add('page-hidden');
+        } else {
+          document.documentElement.classList.remove('page-hidden');
+          if (window.ScrollAssemblyEngine) {
+            window.ScrollAssemblyEngine.wake();
+          }
+        }
+      });
+
+      initScrollAssemblyEngine();
+    }
+
+    /**
+     * 14. EMAIL COPY HELPER WITH NON-INTRUSIVE TOAST
+     */
+    function initCopyHelper() {
+      const copyBtn = document.getElementById('copyEmailBtn');
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          const email = copyBtn.getAttribute('data-copy-text') || 'alex889100@gmail.com';
+          const dict = TRANSLATIONS[currentLang] || TRANSLATIONS.lo;
+
+          const fallbackCopy = () => {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = email;
+            tempInput.setAttribute('readonly', '');
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+
+            try {
+              document.execCommand('copy');
+              showToast(`${dict.toast.copied} ${email}`);
+            } catch (err) {
+              showToast(email);
+            } finally {
+              document.body.removeChild(tempInput);
+            }
+          };
+
+          if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+            navigator.clipboard.writeText(email).then(
+              () => showToast(`${dict.toast.copied} ${email}`),
+              () => fallbackCopy()
+            );
+          } else {
+            fallbackCopy();
+          }
+        });
+      }
+    }
+
+    // Initialize Everything Safely on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      initThemeSystem();
+      initLanguageSystem();
+      initNavigation();
+      initProjectModal();
+      initMotionAndInteractions();
+      initCopyHelper();
+    });
+  </script>
+</body>
+</html>
